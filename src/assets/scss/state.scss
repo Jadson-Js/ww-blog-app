@@ -1,0 +1,63 @@
+@import '@/assets/scss/__utils.scss';
+
+.is-link {
+    text-decoration: none;
+
+    &:hover {
+        color: #E74C3c;
+    }
+}
+
+.is-linkImg {
+    transition: all .3s ease;
+
+    &:hover {
+        filter: brightness(70%);
+    }
+}
+
+.is-container__new {
+    background: #fff;
+    padding: 1em;
+    margin: 0 auto 1em;
+    position: relative;
+}
+
+.is-new__category {
+    font-weight: 450;
+    color: #2C3E50;    
+}
+
+.is-new__title{
+    color: #E74C3c;
+    font-weight: 500;
+
+    &:hover {
+        color: #C0392B;
+    }
+}
+
+.is-new__text {
+    color: #34495E;
+    font-weight: 300;
+    margin: 0;
+}
+
+
+.is-new__time {
+    color: #7F8C8d;
+    font-weight: 400;
+    font-size: .8em;
+    white-space: nowrap;
+}
+
+.is-list {
+    list-style: none;
+    padding: 0;
+}
+
+.is-categoryHeader {
+    font-weight: 600;
+    color: $color-dark-black;
+    text-transform: capitalize;
+}

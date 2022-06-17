@@ -1,0 +1,68 @@
+$color-dark-ultra-black: #192627;
+$color-dark-black: #2c3e50;
+$color-dark-light:#34495e;
+$color-grey: #7F8C8d;
+$color-white:#ecf0f1;
+$color-mute-white:#BDC3C7;
+$color-bar-white: #95A5A6;
+$color-green-light: #1ABC9c;
+$color-blue-light: #3498DB;
+$color-red: #E74C3C;
+$color-dark-red: #C0392B;
+
+%enlarge {
+    transition: 0.5s;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+%image-center-cover {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+%radios-five {
+    border-radius: 5px;
+}
+
+%relative {
+    position: relative;
+}
+
+%absolute {
+    position: absolute;
+}
+
+%link-to-text {
+    text-decoration: none;
+    color: rgb(39, 192, 197);
+}
+
+%btn-modern {
+    border-color: #3498db;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all ll 150ms ease-in-out;
+}
+
+%transparent {
+  background-color: transparent;
+}
+
+%new__time {
+    color: #7F8C8d;
+    font-weight: 270;
+    font-size: .8em;
+    white-space: nowrap;
+}
+
+@mixin center-block ($w) {
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
