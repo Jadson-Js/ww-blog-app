@@ -1,6 +1,6 @@
 <template>
   <ul class="carousel-inner slide__list">
-    <li v-for="(value, key) in GET_SLIDE_NOTICES" :key="key" :class="['carousel-item', isActive(key) ]"
+    <li v-for="(value, key) in GET_SLIDE" :key="key" :class="['carousel-item', isActive(key) ]"
       data-bs-interval="4000">
 
       <img :src="'http://localhost:3000/uploads/notice-' + value.ImageId + '.jpg'" class="d-block slide__img">
@@ -26,7 +26,7 @@
       return {
       }
     },
-    computed: mapGetters(['GET_SLIDE_NOTICES']),
+    computed: mapGetters(['GET_SLIDE']),
     methods: {
       isActive(key) {
         return key == 0 ? 'active' : ''

@@ -5,36 +5,49 @@ export default {
         notices: {
             slide: [],
             feed: [],
-            article: {}
+            article: {},
+            generation: 0
         }
     }),
 
     getters: {
-        GET_SLIDE_NOTICES(state) {
+        GET_SLIDE(state) {
             return state.notices.slide
         },
 
-        GET_FEED_NOTICES(state) {
+        GET_FEED(state) {
             return state.notices.feed
         },
 
-        GET_ARTICLE_NOTICE(state) {
+        GET_ARTICLE(state) {
             return state.notices.article
+        },
+
+        GET_GENERATION(state) {
+            return state.notices.generation
         }
     },
 
     mutations: {
-        SET_NOTICES_TO_SLIDE(state, data) {
+        SET_SLIDE(state, data) {
             state.notices.slide = data
         },
 
-        SET_NOTICES_TO_FEED(state, data) {
-            state.notices.feed = data
+        SET_FEED(state, data) {
+
+            for(let value of data) {
+                state.notices.feed.push(value)
+            } 
+
         },
 
-        SET_NOTICE_TO_ARTICLE(state, data) {
+        SET_ARTICLE(state, data) {
             state.notices.article = data
-        }
+        },
+
+        SET_GENERATION(state) {
+            state.notices.generation += 1
+        },
     },
 
     actions: {
@@ -42,7 +55,7 @@ export default {
             try {
                 const articles = await axios.get('http://localhost:3000/articles/limit/' + config.limit + '/offset/' + config.offset)
 
-                commit('SET_NOTICES_TO_SLIDE', articles.data.data)
+                commit('SET_SLIDE', articles.data.data)
             } catch (error) {
                 alert(error)    
                 console.log(error)
@@ -53,7 +66,9 @@ export default {
             try {
                 const articles = await axios.get('http://localhost:3000/articles/limit/' + config.limit + '/offset/' + config.offset)
 
-                commit('SET_NOTICES_TO_FEED', articles.data.data)
+                console.log(articles)
+
+                commit('SET_FEED', articles.data.data)
             } catch (error) {
                 alert(error)    
                 console.log(error)
@@ -64,7 +79,7 @@ export default {
             try {
                 const articles = await axios.get('http://localhost:3000/articles/category/' + config.category + '/limit/' + config.limit + '/offset/' + config.offset)
 
-                commit('SET_NOTICES_TO_FEED', articles.data.data)
+                commit('SET_FEED', articles.data.data)
             } catch (error) {
                 alert(error)    
                 console.log(error)
@@ -75,11 +90,11 @@ export default {
             try {
                 const article = await axios.get('http://localhost:3000/article/' + id)
 
-                commit('SET_NOTICE_TO_ARTICLE', article.data.data)
+                commit('SET_ARTICLE', article.data.data)
             } catch (error) {
                 alert(error)    
                 console.log(error)
             }
-        },
+        }
     }
 }

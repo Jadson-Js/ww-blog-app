@@ -11,22 +11,25 @@
                 if (newRoute.name != 'login' || newRoute.name != 'profile') {
                     if (this.$route.params.category == undefined) {
                         const config = {
-                            limit: 14,
-                            offset: 3
+                            limit: 3,
+                            offset: this.$store.getters.GET_GENERATION
                         }
 
                         this.$store.dispatch('getNoticesByApiToFeed', config)
                     } else {
                         const config = {
                             category: this.$route.params.category,
-                            limit: 14,
-                            offset: 1
+                            limit: 3,
+                            offset: this.$store.getters.GET_GENERATION
                         }
 
                         this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
                     }
                 }
             })
+        },
+        updated() {
+            alert('x')
         }
     }
 </script>

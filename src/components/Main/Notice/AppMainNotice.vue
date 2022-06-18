@@ -56,7 +56,7 @@
             AppMainNoticeMore,
             AppMainHome
         },
-        computed: mapGetters(['GET_ARTICLE_NOTICE'])
+        computed: mapGetters(['GET_ARTICLE'])
     }
 </script>
 

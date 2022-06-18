@@ -1,19 +1,22 @@
 <template>
     <div class="container-fluid l-home">
-        <div v-for="containerNumber in manyContainers()" :key="containerNumber" class="row"> <!-- Para cada 14 noticias do DB, essa div sera repetida -->
+        <div v-for="generationNotices in 1" :key="generationNotices" class="row"> <!-- Para cada 14 noticias do DB, essa div sera repetida -->
             <div class="col-12 col-md-8 home__articles">
                 <FeedNotice 
-                    v-for="(value, key) in GET_FEED_NOTICES.slice((containerNumber - 1) * 3, containerNumber * 3)" :key="key" 
+                    v-for="(value, key) in GET_FEED" :key="key" 
                     :notice="value"
                 />
             </div>
 
             <div class="col-12 col-md-4 home__posts">
                 <AppMainHomeColumn
-                    :categoryId="containerNumber"
+                    :categoryId="1"
                 />
             </div>
         </div>
+
+        {{ GET_GENERATION }}
+        <button @click="moreNotices()">Mais notícias</button>
     </div>
 </template>
 
@@ -28,14 +31,18 @@
             FeedNotice,
             AppMainHomeColumn
         },
-        computed: mapGetters(['GET_FEED_NOTICES']),
+        computed: mapGetters(['GET_FEED', 'GET_GENERATION']),
         methods: {
-            manyContainers() {
-                const totalNotices = this.$store.getters.GET_FEED_NOTICES.length
-                const manyContainers = Math.floor(totalNotices / 6)
+            moreNotices() {
+                this.$store.commit('SET_GENERATION')
 
-                return manyContainers
-            },
+                const config = {
+                    limit: 3,
+                    offset: this.$store.getters.GET_GENERATION * 3
+                }
+
+                this.$store.dispatch('getNoticesByApiToFeed', config)
+            }
         }
     }
 </script>
