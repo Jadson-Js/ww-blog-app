@@ -6,7 +6,7 @@ export default {
             slide: [],
             feed: [],
             article: {},
-            generation: 0
+            generation: 1
         }
     }),
 
@@ -39,6 +39,10 @@ export default {
                 state.notices.feed.push(value)
             } 
 
+        },
+
+        SET_RESET_FEED(state) {
+            state.notices.feed = []
         },
 
         SET_ARTICLE(state, data) {

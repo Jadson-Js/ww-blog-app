@@ -1,17 +1,13 @@
 <template>
     <div class="container-fluid l-home">
-        <div v-for="generationNotices in 1" :key="generationNotices" class="row"> <!-- Para cada 14 noticias do DB, essa div sera repetida -->
+        <div class="row">
+            <!-- Para cada 14 noticias do DB, essa div sera repetida -->
             <div class="col-12 col-md-8 home__articles">
-                <FeedNotice 
-                    v-for="(value, key) in GET_FEED" :key="key" 
-                    :notice="value"
-                />
+                <FeedNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
             </div>
 
             <div class="col-12 col-md-4 home__posts">
-                <AppMainHomeColumn
-                    :categoryId="1"
-                />
+                <AppMainHomeColumn :categoryId="1" />
             </div>
         </div>
 
@@ -21,7 +17,9 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import {
+        mapGetters
+    } from 'vuex'
 
     import FeedNotice from './Model/FeedNotice.vue'
     import AppMainHomeColumn from './AppMainHomeColumn.vue'
@@ -36,12 +34,23 @@
             moreNotices() {
                 this.$store.commit('SET_GENERATION')
 
-                const config = {
-                    limit: 3,
-                    offset: this.$store.getters.GET_GENERATION * 3
+                if (this.$route.params.category == undefined) {
+                    const config = {
+                        limit: 3,
+                        offset: this.$store.getters.GET_GENERATION * 3
+                    }
+
+                    this.$store.dispatch('getNoticesByApiToFeed', config)
+                } else {
+                    const config = {
+                        category: this.$route.params.category,
+                        limit: 3,
+                        offset: this.$store.getters.GET_GENERATION * 3
+                    }
+
+                    this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
                 }
 
-                this.$store.dispatch('getNoticesByApiToFeed', config)
             }
         }
     }

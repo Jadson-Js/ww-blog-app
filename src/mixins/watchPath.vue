@@ -9,10 +9,12 @@
                 }
 
                 if (newRoute.name != 'login' || newRoute.name != 'profile') {
+                    this.$store.commit('SET_RESET_FEED')
+
                     if (this.$route.params.category == undefined) {
                         const config = {
                             limit: 3,
-                            offset: this.$store.getters.GET_GENERATION
+                            offset: 3
                         }
 
                         this.$store.dispatch('getNoticesByApiToFeed', config)
@@ -20,16 +22,13 @@
                         const config = {
                             category: this.$route.params.category,
                             limit: 3,
-                            offset: this.$store.getters.GET_GENERATION
+                            offset: 0
                         }
 
                         this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
                     }
                 }
             })
-        },
-        updated() {
-            alert('x')
         }
     }
 </script>
