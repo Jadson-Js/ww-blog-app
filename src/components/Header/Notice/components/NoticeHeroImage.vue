@@ -1,9 +1,9 @@
 <template>
-    <img :src="'http://localhost:3000/uploads/notice-' + (GET_ARTICLE_NOTICE.ImageId || 0) + '.jpg'" class="mb-2 hero__bg" alt="">
+    <img :src="'http://localhost:3000/uploads/notice-' + (GET_ARTICLE.ImageId || 0) + '.jpg'" class="mb-2 hero__bg" alt="">
 
     <div class="d-flex flex-column hero__refs">
         <span class="mb-1 bg__refs">Escrito por Blog.com</span>
-        <span class="bg__time">{{ formatTime(GET_ARTICLE_NOTICE.updatedAt) }} - Atualizado {{ time_ago_in_words_with_parsing(GET_ARTICLE_NOTICE.updatedAt) }}</span>
+        <span class="bg__time">{{ formatTime(GET_ARTICLE.updatedAt) }} - Atualizado {{ time_ago_in_words_with_parsing(GET_ARTICLE.updatedAt) }}</span>
     </div>
 </template>
 
@@ -15,7 +15,7 @@
             return {
             }
         },
-        computed: mapGetters(['GET_ARTICLE_NOTICE']),
+        computed: mapGetters(['GET_ARTICLE']),
         methods: {
             formatTime(value) {
                 if (value != undefined) {

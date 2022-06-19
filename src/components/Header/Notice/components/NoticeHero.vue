@@ -1,11 +1,11 @@
 <template>
   <div class="mt-4 is-box">
     <h2 class="hero__title">
-      ID: {{ GET_ARTICLE_NOTICE.id }}
+      ID: {{ GET_ARTICLE.id }}
     </h2>
 
     <p class="mt-3 mb-4 hero__text">
-      {{ GET_ARTICLE_NOTICE.description }}
+      {{ GET_ARTICLE.description }}
     </p>
 
     <NoticeHeroImage />
@@ -21,7 +21,7 @@
     components: {
       NoticeHeroImage
     },
-    computed: mapGetters(['GET_ARTICLE_NOTICE']),
+    computed: mapGetters(['GET_ARTICLE']),
   }
 </script>
 

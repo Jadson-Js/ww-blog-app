@@ -69,9 +69,7 @@ export default {
         async getNoticesByApiToFeed({ commit }, config) {
             try {
                 const articles = await axios.get('http://localhost:3000/articles/limit/' + config.limit + '/offset/' + config.offset)
-
-                console.log(articles)
-
+                
                 commit('SET_FEED', articles.data.data)
             } catch (error) {
                 alert(error)    
@@ -93,6 +91,8 @@ export default {
         async getNoticesByApiToArticle({ commit }, id) {
             try {
                 const article = await axios.get('http://localhost:3000/article/' + id)
+
+                console.log(article)
 
                 commit('SET_ARTICLE', article.data.data)
             } catch (error) {
