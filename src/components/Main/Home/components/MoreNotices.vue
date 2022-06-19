@@ -1,5 +1,7 @@
 <template>
-    <button @click="moreNotices()">Mais notícias</button>
+    <div class="d-flex justify-content-center">
+        <button class="btn home__more" @click="moreNotices()">Mais notícias</button>
+    </div>
 </template>
 
 <script>
@@ -25,11 +27,21 @@
                     this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
                 }
 
-            }}
+            }
+        }
     }
 </script>
 
 <style lang="scss" scoped>
     @import 'src/assets/scss/__utils.scss';
 
+    .home__more {
+        width: 10em;
+        margin: auto;
+        border-radius: 20px;
+        background: $color-blue-light;
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.3em;
+    }
 </style>

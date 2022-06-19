@@ -42,6 +42,7 @@ export default {
         },
 
         SET_RESET_FEED(state) {
+            state.notices.generation = 1
             state.notices.feed = []
         },
 

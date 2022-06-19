@@ -4,6 +4,8 @@
             <!-- Para cada 14 noticias do DB, essa div sera repetida -->
             <div class="col-12 col-md-8 home__articles">
                 <FeedNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
+
+                <MoreNotices />
             </div>
 
             <div class="col-12 col-md-4 home__posts">
@@ -11,7 +13,7 @@
             </div>
         </div>
 
-        <MoreNotices />
+        
     </div>
 </template>
 
