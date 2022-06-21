@@ -49,8 +49,7 @@ export default {
 
                 commit('SET_CATEGORY_NOTICES', data.data.data)
             } catch (error) {
-                alert(error)    
-                console.log(error)
+                return error.response
             }
         }
     }

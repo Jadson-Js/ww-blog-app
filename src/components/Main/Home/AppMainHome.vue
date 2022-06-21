@@ -9,11 +9,9 @@
             </div>
 
             <div class="col-12 col-md-4 home__posts">
-                <AppMainHomeColumn :categoryId="1" />
+                <AppMainHomeColumn v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost" />
             </div>
         </div>
-
-        
     </div>
 </template>
 
@@ -32,7 +30,16 @@
             AppMainHomeColumn,
             MoreNotices
         },
-        computed: mapGetters(['GET_FEED'])
+        computed: {
+            ...mapGetters(['GET_FEED', 'GET_GENERATION']),
+            categoryIdPost() {
+                const generationFeed = this.$store.getters.GET_GENERATION
+
+                const limitCategory = this.$store.getters.GET_CATEGORIES.length
+
+                return generationFeed <= limitCategory ? generationFeed : 1
+            }
+        }
     }
 </script>
 
