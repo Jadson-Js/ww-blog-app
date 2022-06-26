@@ -13,7 +13,7 @@
             </h2>
 
             <div class="d-inline">
-                <p class="d-inline is-new__category"> </p><span class="is-new__time">{{ time_ago_in_words_with_parsing(notice.updatedAt) }}</span>
+                <span class="is-new__time">{{ time_ago_in_words_with_parsing(notice.updatedAt) }}</span>
             </div>
         </div>
     </article>

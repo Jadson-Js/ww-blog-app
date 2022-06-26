@@ -10,7 +10,6 @@ import store from '../store/store'
 const AppHeaderSlide = () => import('../components/Header/Slide/AppHeaderSlide.vue')
 const AppHeaderCategory = () => import('../components/Header/Category/AppHeaderCategory.vue')
 const AppHeaderNotice = () => import('../components/Header/Notice/AppHeaderNotice.vue')
-const AppHeaderProfile = () => import('../components/Header/Profile/AppHeaderProfile.vue')
 
 // Main
 const AppMainHomeContent = () => import('../components/Main/Home/AppMainHome.vue');
@@ -63,7 +62,6 @@ const router = createRouter({
             path: '/perfil',
             name: 'profile',
             components: {
-                header: AppHeaderProfile,
                 main: AppMainProfile
             },
             beforeEnter: (to, from, next) => {

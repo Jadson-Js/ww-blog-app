@@ -7,9 +7,9 @@ import router from './router/router' // IMPORTANDO O ROUTER
 import store from './store/store' // IMPORTANDO O STORE
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faXmark, faAngleRight, faEnvelope, faPhone, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faAngleRight, faEnvelope, faPhone, faLocationDot, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faXmark, faAngleRight, faEnvelope, faPhone, faLocationDot);
+library.add(faBars, faXmark, faAngleRight, faEnvelope, faPhone, faLocationDot, faEllipsisVertical);
 
 // , faInstagram, faTwitter, faGithub
 

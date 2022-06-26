@@ -2,7 +2,7 @@
     <article class="is-container__new d-flex flex-column flex-sm-row-reverse justify-content-sm-end align-items-start">
         <div class="ms-sm-3">
             <div class="d-inline-block mb-2"> <!-- Mostre a categorias dinamicamente & o horario q foi postado também -->
-                <p class="d-inline is-new__category">{{ notice.category.title }} - </p><span class="is-new__time">{{ time_ago_in_words_with_parsing(notice.updatedAt) }}</span>
+                <span class="d-inline is-new__category">{{ notice.category.title }} - </span><span class="is-new__time">{{ time_ago_in_words_with_parsing(notice.updatedAt) }}</span>
             </div>
             <h1 class="h3">
                 <router-link class="is-link is-new__title" :to="{name: 'notice', params: {category: notice.category.title, noticeId: notice.id, noticeTitle: notice.title}}">

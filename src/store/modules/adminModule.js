@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
     state: () => ({
-        isLogged: false
+        isLogged: true
     }),
 
     getters: {
