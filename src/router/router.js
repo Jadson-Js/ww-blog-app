@@ -10,12 +10,14 @@ import store from '../store/store'
 const AppHeaderSlide = () => import('../components/Header/Slide/AppHeaderSlide.vue')
 const AppHeaderCategory = () => import('../components/Header/Category/AppHeaderCategory.vue')
 const AppHeaderNotice = () => import('../components/Header/Notice/AppHeaderNotice.vue')
+const AppHeaderReport = () => import('../components/Header/Report/AppHeaderReport.vue')
 
 // Main
 const AppMainHomeContent = () => import('../components/Main/Home/AppMainHome.vue');
 const AppMainNotice = () => import('../components/Main/Notice/AppMainNotice.vue')
 const AppMainLogin = () => import('../components/Main/Login/AppMainLogin.vue')
 const AppMainProfile = () => import('../components/Main/Profile/AppMainProfile.vue')
+const AppMainReport = () => import('../components/Main/Report/AppMainReport.vue')
 
 // Errors
 const AppNotFound = () => import('../components/AppNotFound.vue');
@@ -65,8 +67,23 @@ const router = createRouter({
                 main: AppMainProfile
             },
             beforeEnter: (to, from, next) => {
-                // const cookir = document.cookie
-
+                if(store.getters.GET_IS_LOGGED) {
+                    next()
+                } else {
+                    next('/')
+                }
+        
+                
+            } 
+        },
+        {
+            path: '/perfil/noticiar',
+            name: 'report',
+            components: {
+                header: AppHeaderReport,
+                main: AppMainReport
+            },
+            beforeEnter: (to, from, next) => {
                 if(store.getters.GET_IS_LOGGED) {
                     next()
                 } else {

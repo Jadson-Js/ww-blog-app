@@ -1,7 +1,9 @@
 <template>
     <main class="container-fluid">
         <div class="d-flex justify-content-end">
-            <button class="btn btn-sm profile__button">Criar artigo</button>
+            <router-link class="btn btn-sm is-link profile__button" :to="{name: 'report'}">
+                Criar artigo
+            </router-link>
         </div>
 
         <h1 class="h2 mb-4 profile__title">Meus Artigos</h1>
