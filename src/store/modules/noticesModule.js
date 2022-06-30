@@ -111,6 +111,16 @@ export default {
                 alert(error)    
                 console.log(error)
             }
+        },
+
+        async deleteNotice(none, id) {
+            try {
+                await axios.delete('http://localhost:3000/article/' + id)
+
+            } catch (error) {
+                alert(error)    
+                console.log(error)
+            }
         }
     }
 }

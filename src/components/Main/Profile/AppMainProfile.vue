@@ -1,5 +1,5 @@
 <template>
-    <main class="container-fluid">
+    <main class="container-fluid l-profile">
         <div class="d-flex justify-content-end">
             <router-link class="btn btn-sm is-link profile__button" :to="{name: 'report'}">
                 Criar artigo
@@ -32,6 +32,10 @@
 
 <style lang="scss" scoped>
     @import 'src/assets/scss/__utils.scss';
+
+    .l-profile {
+        background: #fff;
+    }
 
     .profile__button {
         background: $color-green;

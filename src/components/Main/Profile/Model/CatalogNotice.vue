@@ -14,8 +14,8 @@
             <font-awesome-icon icon="fa-solid fa-ellipsis-vertical" class="dropdown-toggle catalog__control" type="button"
                 id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" />
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item">Editar</a></li>
-                <li><a class="dropdown-item">Deletar</a></li>
+                <li class="dropdown-item">Editar</li>
+                <li class="dropdown-item" @click="deleteNotice(notice.id)">Deletar</li>
             </ul>
         </div>
     </article>
@@ -30,6 +30,11 @@
             }
         },
         methods: {
+            deleteNotice(id) {
+                this.$store.dispatch('deleteNotice', id)
+
+                this.$router.go()
+            },  
             time_ago_in_words_with_parsing(from) {
                 var date = new Date;
                 date.setTime(Date.parse(from));

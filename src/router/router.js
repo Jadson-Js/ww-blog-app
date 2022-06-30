@@ -10,7 +10,6 @@ import store from '../store/store'
 const AppHeaderSlide = () => import('../components/Header/Slide/AppHeaderSlide.vue')
 const AppHeaderCategory = () => import('../components/Header/Category/AppHeaderCategory.vue')
 const AppHeaderNotice = () => import('../components/Header/Notice/AppHeaderNotice.vue')
-const AppHeaderReport = () => import('../components/Header/Report/AppHeaderReport.vue')
 
 // Main
 const AppMainHomeContent = () => import('../components/Main/Home/AppMainHome.vue');
@@ -80,7 +79,6 @@ const router = createRouter({
             path: '/perfil/noticiar',
             name: 'report',
             components: {
-                header: AppHeaderReport,
                 main: AppMainReport
             },
             beforeEnter: (to, from, next) => {
