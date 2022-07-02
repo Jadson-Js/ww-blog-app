@@ -1,7 +1,7 @@
 <template>
     <article class="d-flex justify-content-between catalog__notice">
         <div class="d-flex">
-            <img :src="'http://localhost:3000/uploads/notice-' + notice.ImageId + '.jpg'"
+            <img :src="'http://localhost:3000/uploads/' + notice.ImageName"
                 class="img-fluid me-2 is-linkImg  catalog__img">
 
             <div class="d-flex flex-column catalog__content">
