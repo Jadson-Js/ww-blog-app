@@ -7,7 +7,7 @@ export default {
             feed: [],
             article: {},
             generation: 1
-        }
+        },
     }),
 
     getters: {
@@ -103,8 +103,6 @@ export default {
         async getNoticesByApiToArticle({ commit }, id) {
             try {
                 const article = await axios.get('http://localhost:3000/article/' + id)
-
-                console.log(article)
 
                 commit('SET_ARTICLE', article.data.data)
             } catch (error) {

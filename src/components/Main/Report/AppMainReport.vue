@@ -19,10 +19,6 @@
             value="Publicar artigo">
         </div>
       </form>
-
-      <div id="display-image">
-
-      </div>
     </div>
   </main>
 </template>
@@ -47,7 +43,9 @@
           data[name] = value ? value : 'x'
         }
 
-        data['inputContent'] = document.querySelector('.ql-editor').innerHTML
+        data['content'] = document.querySelector('.ql-editor').innerHTML
+
+        this.$store.dispatch('reportNotice', data)
       }
     }
   };
