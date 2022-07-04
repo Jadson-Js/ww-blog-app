@@ -1,11 +1,9 @@
 <template>
-    <div class="d-flex flex-column justify-content-center align-items-center report__image">
-        <div id="reportInput" class="report__input is-cameraIcon">
-            <input type="file" name="image" id="inputImage" accept="image/jpeg, image/png, image/jpg">
+    <div :class="classToReportImage">
+        <div id="reportInput" :class="['report__input', classIcon]">
+            <input type="file" name="image" id="inputImage" accept="image/jpeg, image/png, image/jpg" @change="onFileChange">
         </div>
         <span id="inputImageLabel" class="mb-2 report-label">Adicionar foto</span>
-
-        {{ url }}
     </div>
 </template>
 
@@ -13,22 +11,26 @@
     export default {
         data() {
             return {
+                classToReportImage: 'd-flex flex-column justify-content-center align-items-center report__image',
+                classIcon: 'is-cameraIcon',
                 url: undefined
             }
         },
         methods: {
-            // onFileChange(e) {
-            //     const reportInput = document.querySelector("#reportInput")
-            //     const inputImageLabel = document.querySelector("#inputImageLabel")
-            //     const file = e.target.files[0];
+            onFileChange(e) {
+                // const reportInput = document.querySelector("#reportInput")
+                const inputImageLabel = document.querySelector("#inputImageLabel")
+                const file = e.target.files[0];
 
-            //     this.url = URL.createObjectURL(file);
+                this.url = URL.createObjectURL(file);
 
-            //     reportInput.remove('is-cameraIcon')
-            //     inputImageLabel.classList.add('d-none')
+                // reportInput.remove('is-cameraIcon')
+                inputImageLabel.classList.add('d-none')
 
-            //     document.querySelector(".report__image").style.backgroundImage =`url(${this.url})`;
-            // }
+                document.querySelector(".report__image").style.backgroundImage =`url(${this.url})`;
+
+                this.classIcon = ''
+            }
         }
     }
 </script>

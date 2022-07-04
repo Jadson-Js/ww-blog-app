@@ -1,7 +1,7 @@
 <template>
   <main class="l-report">
     <div class="container">
-      <form class="row" @submit.prevent>
+      <form class="needs-validation row" @submit.prevent novalidate>
         <div class="col-12 col-md-5">
           <ReportQuestionImage />
         </div>
@@ -23,6 +23,7 @@
   </main>
 </template>
 
+
 <script>
   import ReportQuestionImage from "./components/ReportQuestionImage.vue";
   import ReportQuestionInput from "./components/ReportQuestionInput.vue";
@@ -40,12 +41,19 @@
         let data = {}
 
         for (let [name, value] of formData) {
-          data[name] = value ? value : 'x'
+          data[name] = value ? value : undefined
         }
 
         data['content'] = document.querySelector('.ql-editor').innerHTML
 
-        this.$store.dispatch('reportNotice', data)
+        await this.$store.dispatch('reportNotice', data)
+
+        if (this.$store.getters.GET_SUCCESS) {
+
+          this.$router.replace({ name: 'profile' })
+        } else {
+          alert('Fracasso')
+        }
       }
     }
   };

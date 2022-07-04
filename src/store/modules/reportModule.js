@@ -3,34 +3,47 @@ import axios from 'axios'
 export default {
     state: () => ({
         report: {
-            image: undefined
+            success: false
         },
     }),
 
     getters: {
-        GET_IMAGE(state) {
-            return state.report.image
+        GET_SUCCESS(state) {
+            return state.report.success
         }
     },
 
     mutations: {
-        SET_IMAGE(state, data) {
-            state.report.image = data
+        SET_SUCCESS(state, data) {
+            state.report.success = data
         }
     },
 
     actions: {
-        async reportNotice(none, formData) {
+        async reportNotice({ commit }, formData) {
+            const options = {
+                method: 'POST',
+                url: 'http://localhost:3000/article',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: {
+                    image: formData.image,
+                    title: formData.title,
+                    description: formData.description,
+                    content: formData.content,
+                    CategoryId: formData.CategoryId,
+                }
+            };
+
             try {
-                console.log(formData)
-                axios.post('http://localhost:3000/article', formData, {
-                    headers: {
-                      'Content-Type': 'multipart/form-data'
-                    }
-                  })
+                const articleCreated = await axios(options)
+                
+                console.log(articleCreated)
+
+                commit('SET_SUCCESS', true)
             } catch (error) {
-                alert(error)    
-                console.log(error)
+                commit('SET_SUCCESS', false)
             }
         }
     }

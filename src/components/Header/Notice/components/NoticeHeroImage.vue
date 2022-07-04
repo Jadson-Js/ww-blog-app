@@ -1,5 +1,5 @@
 <template>
-    <img :src="'http://localhost:3000/uploads/notice-' + (GET_ARTICLE.ImageId || 0) + '.jpg'" class="mb-2 hero__bg" alt="">
+    <img :src="'http://localhost:3000/uploads/' + (GET_ARTICLE.ImageName || 0)" class="mb-2 hero__bg" alt="">
 
     <div class="d-flex flex-column hero__refs">
         <span class="mb-1 bg__refs">Escrito por Blog.com</span>

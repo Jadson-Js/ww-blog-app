@@ -1,13 +1,19 @@
 <template>
-    <div class="d-flex justify-content-center">
+    <div v-if="hasNotices" class="d-flex justify-content-center">
         <button class="btn home__more" @click="moreNotices()">Mais notícias</button>
     </div>
 </template>
 
 <script>
+
     export default {
+        data() {
+            return {
+                hasNotices: true
+            }
+        },
         methods: {
-            moreNotices() {
+            async moreNotices() {
                 this.$store.commit('SET_GENERATION')
 
                 if (this.$route.params.category == undefined) {
@@ -16,7 +22,7 @@
                         offset: this.$store.getters.GET_GENERATION * 3
                     }
 
-                    this.$store.dispatch('getNoticesByApiToFeed', config)
+                    await this.$store.dispatch('getNoticesByApiToFeed', config)
                 } else {
                     const config = {
                         category: this.$route.params.category,
@@ -24,10 +30,17 @@
                         offset: this.$store.getters.GET_GENERATION * 3
                     }
 
-                    this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
+                    await this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
                 }
 
+                let lastNotice = await this.$store.getters.GET_FEED_LAST_NOTICE
+                if(lastNotice.id == 1) {
+                    this.hasNotices = false
+                }
             }
+        },
+        updated() {
+            console.log(this.$store.getters.GET_FEED_LAST_NOTICE)
         }
     }
 </script>

@@ -19,6 +19,11 @@ export default {
             return state.notices.feed
         },
 
+        GET_FEED_LAST_NOTICE(state) {
+            const feed = state.notices.feed
+            return feed[feed.length - 1]
+        },
+
         GET_ARTICLE(state) {
             return state.notices.article
         },
@@ -38,7 +43,6 @@ export default {
             for(let value of data) {
                 state.notices.feed.push(value)
             } 
-
         },
 
         SET_RESET_FEED(state) {

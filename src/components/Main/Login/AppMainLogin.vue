@@ -62,9 +62,7 @@
 
                 if (this.$store.getters.GET_IS_LOGGED) {
                     this.validCredentials = true
-                    this.$router.replace({
-                        name: 'profile'
-                    })
+                    this.$router.replace({ name: 'profile' })
                 } else {
                     this.validCredentials = false
                 }
