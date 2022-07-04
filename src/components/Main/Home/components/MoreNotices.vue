@@ -2,6 +2,8 @@
     <div v-if="hasNotices" class="d-flex justify-content-center">
         <button class="btn home__more" @click="moreNotices()">Mais notícias</button>
     </div>
+
+    {{ lastNotice }}
 </template>
 
 <script>
@@ -10,6 +12,11 @@
         data() {
             return {
                 hasNotices: true
+            }
+        },
+        computed: {
+            lastNotice() {
+                return this.$store.getters.GET_FEED_LAST_NOTICE
             }
         },
         methods: {
@@ -31,16 +38,17 @@
                     }
 
                     await this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
-                }
-
-                let lastNotice = await this.$store.getters.GET_FEED_LAST_NOTICE
-                if(lastNotice.id == 1) {
-                    this.hasNotices = false
-                }
+                }  
             }
         },
-        updated() {
-            console.log(this.$store.getters.GET_FEED_LAST_NOTICE)
+        watch: {
+            lastNotice(newValue) {
+                if (newValue && newValue.id == 1) {
+                    this.hasNotices = false
+                } else {
+                    this.hasNotices = true
+                }
+            }
         }
     }
 </script>

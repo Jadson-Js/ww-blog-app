@@ -39,7 +39,6 @@ export default {
         },
 
         SET_FEED(state, data) {
-
             for(let value of data) {
                 state.notices.feed.push(value)
             } 
