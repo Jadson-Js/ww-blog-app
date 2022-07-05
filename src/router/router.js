@@ -92,6 +92,22 @@ const router = createRouter({
             } 
         },
         {
+            path: '/perfil/edit/noticia/:noticeId',
+            name: 'editReport',
+            components: {
+                main: AppMainReport
+            },
+            beforeEnter: (to, from, next) => {
+                if(store.getters.GET_IS_LOGGED) {
+                    next()
+                } else {
+                    next('/')
+                }
+        
+                
+            } 
+        },
+        {
             path: '/:pathMatch(.*)*', // Indica todas possiveis rotas / caso nenhuma de sua rota for chamada essa será chamada
             name: 'error',
             components: {

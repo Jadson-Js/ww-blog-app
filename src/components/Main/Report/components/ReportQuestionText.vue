@@ -1,9 +1,9 @@
 <template>
     <label for="inputDescription" class="h5 form-label mt-4 report__label">Descrição do artigo:</label>
-    <textarea name="description" id="inputDescription" class="form-control mb-4 report__input"
-        placeholder="-Como tankar o bostil? 
--É essa desgraça desde 1500… QUEM PUDER FUJA NEM QUE SEJA POR MEIOS ILEGAIS."></textarea>
-    
+    <textarea name="description" id="inputDescription" class="form-control mb-4 report__input" placeholder="-Como tankar o bostil? 
+-É essa desgraça desde 1500… QUEM PUDER FUJA NEM QUE SEJA POR MEIOS ILEGAIS."
+        :value="GET_ARTICLE.description"></textarea>
+
 
     <label for="inputContent" class="h5 form-label report__label">Conteúdo do artigo:</label>
     <quill-editor name="content" id="inputContent" />
@@ -14,7 +14,15 @@
         mapGetters
     } from "vuex";
     export default {
-        computed: mapGetters(['GET_VALIDATED', 'GET_VALID_CREDENTIALS']),
+        data() {
+            return {
+            }
+        },
+        computed: mapGetters(['GET_VALIDATED', 'GET_VALID_CREDENTIALS', 'GET_ARTICLE']),
+        beforeUpdate() {
+            var editor = document.getElementsByClassName('ql-editor')
+            editor[0].innerHTML = this.$store.getters.GET_ARTICLE.content
+        }   
     }
 </script>
 

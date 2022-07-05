@@ -25,6 +25,7 @@
 
 
 <script>
+  import { mapGetters } from "vuex";
   import ReportQuestionImage from "./components/ReportQuestionImage.vue";
   import ReportQuestionInput from "./components/ReportQuestionInput.vue";
   import ReportQuestionText from './components/ReportQuestionText.vue'
@@ -35,31 +36,39 @@
       ReportQuestionInput,
       ReportQuestionText
     },
+    data() {
+      return {
+        isEdit: false
+      }
+    },
+    computed: mapGetters(['GET_ARTICLE']),
     methods: {
       async createNotice(form) {
         const formData = new FormData(form)
-        
+
         const formFormated = this.fillDataForm(formData)
 
         if (formFormated.dataValid == true) {
-          this.createNewCategory(formFormated)
+          await this.createNewCategory(formFormated.data)
 
-          await this.$store.dispatch('reportNotice', formFormated)
-
-          this.verifySuccess()
+          await this.createOrUpdateNotice(formFormated.data)
+        
+          if (this.$store.getters.GET_SUCCESS) {
+            this.$router.replace({ name: 'profile' })
+          } else {
+            alert('Fracasso')
+          }
         } else {
           alert('Preencha todos os inputs')
         }
       },
 
-      fillDataForm (formData) {
+      fillDataForm(formData) {
         let data = {}
         let dataValid
         data['content'] = document.querySelector('.ql-editor').innerHTML
 
         for (let [name, value] of formData) {
-          console.log(value)
-
           if (value.name == "" || value == "") {
             dataValid = false
           } else {
@@ -76,20 +85,25 @@
 
       async createNewCategory(formFormated) {
         if (formFormated.CategoryId == 'new') {
-            await this.$store.dispatch('createCategoryByApi', formFormated.newCategoryTitle)
+          await this.$store.dispatch('createCategoryByApi', formFormated.newCategoryTitle)
 
-            formFormated['CategoryId'] = this.$store.getters.GET_NEW_CATEGORY_ID
-          }
+          formFormated['CategoryId'] = this.$store.getters.GET_NEW_CATEGORY_ID
+        }
       },
 
-      verifySuccess() {
-        if (this.$store.getters.GET_SUCCESS) {
-            this.$router.replace({
-              name: 'profile'
-            })
-          } else {
-            alert('Fracasso')
-          }
+      async createOrUpdateNotice(formData) {
+        if (this.isEdit) {
+          const noticeId = this.$route.params.noticeId
+          await this.$store.dispatch('editReportNotice', {formData, noticeId})
+        } else {
+          await this.$store.dispatch('reportNotice', formData)
+        }
+      }
+    },
+    async mounted() {
+      if (this.$route.name == 'editReport') {
+        await this.$store.dispatch('getNoticesByApiToArticle', this.$route.params.noticeId)
+        this.isEdit = true
       }
     }
   };

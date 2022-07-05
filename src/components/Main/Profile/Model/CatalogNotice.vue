@@ -14,7 +14,7 @@
             <font-awesome-icon icon="fa-solid fa-ellipsis-vertical" class="dropdown-toggle catalog__control" type="button"
                 id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" />
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li class="dropdown-item">Editar</li>
+                <li><router-link class="dropdown-item" :to="{ name: 'editReport', params: { noticeId: notice.id }}">Editar</router-link></li>
                 <li class="dropdown-item" @click="deleteNotice(notice.id)">Deletar</li>
             </ul>
         </div>

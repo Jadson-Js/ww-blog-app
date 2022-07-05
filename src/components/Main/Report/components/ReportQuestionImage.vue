@@ -8,6 +8,10 @@
 </template>
 
 <script>
+    import {
+        mapGetters
+    } from "vuex";
+
     export default {
         data() {
             return {
@@ -16,6 +20,7 @@
                 url: undefined
             }
         },
+        computed: mapGetters(['GET_ARTICLE']),
         methods: {
             onFileChange(e) {
                 // const reportInput = document.querySelector("#reportInput")
@@ -30,7 +35,7 @@
                 document.querySelector(".report__image").style.backgroundImage =`url(${this.url})`;
 
                 this.classIcon = ''
-            }
+            } 
         }
     }
 </script>

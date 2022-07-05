@@ -8,7 +8,7 @@
       <div class="carousel-caption  d-md-block">
         <router-link class="h1 is-link slide__title"
           :to="{name: 'notice', params: {category: value.category.title, noticeId: value.id, noticeTitle: value.title}}">
-          ID: {{ value.id }}
+          {{ value.title }}
         </router-link>
       </div>
     </li>

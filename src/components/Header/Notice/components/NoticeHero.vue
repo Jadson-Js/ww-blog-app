@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4 is-box">
     <h2 class="hero__title">
-      ID: {{ GET_ARTICLE.id }}
+      {{ GET_ARTICLE.title }}
     </h2>
 
     <p class="mt-3 mb-4 hero__text">

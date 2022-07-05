@@ -6,7 +6,7 @@
             </div>
             <h1 class="h3">
                 <router-link class="is-link is-new__title" :to="{name: 'notice', params: {category: notice.category.title, noticeId: notice.id, noticeTitle: notice.title}}">
-                    ID: {{ notice.id }}
+                    {{ notice.title }}
                 </router-link>
             </h1>
 

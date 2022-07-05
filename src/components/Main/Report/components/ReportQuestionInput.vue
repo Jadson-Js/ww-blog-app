@@ -1,16 +1,13 @@
 <template>
   <label for="inputTitle" class="h5 form-label mt-4 mt-md-0 report__label">Título do artigo:</label>
   <input type="text" name="title" id="inputTitle" class="form-control report__input"
-    placeholder="Como tankar o Bostil">
+    placeholder="Como tankar o Bostil" :value="GET_ARTICLE.title">
  
   <label for="selectCategory" class="h5 form-label report__label">Categoria do artigo:</label>
-  <select name="CategoryId" id="selectCategory" class="form-select" v-model="category" required>
+  <select name="CategoryId" id="selectCategory" class="form-select" :value="GET_ARTICLE.CategoryId" v-model="category" required>
     <option value="new">Nova categoria!</option>
     <option v-for="(value, key) in GET_CATEGORIES" :key="key" :value="value.id">{{ value.title }}</option>
   </select>
-  <div class="invalid-feedback">
-    Selecione uma categoria!
-  </div>
 
   <div v-show="category == 'new'">
     <label for="inputNewCategory" class="h5 form-label report__label">Nova categoria:</label>
@@ -28,10 +25,18 @@
   export default {
     data() {
       return {
-        category: ''
+        category: '',
+        onlyUpdate: false
       }
     },
-    computed: mapGetters(['GET_CATEGORIES', 'GET_IS_LOGGED']),
+    computed: mapGetters(['GET_CATEGORIES', 'GET_IS_LOGGED', 'GET_ARTICLE']),
+    updated() {
+      if (!this.onlyUpdate) {
+        this.category = this.$store.getters.GET_ARTICLE.CategoryId
+        this.onlyUpdate = true
+      }
+      
+    }
   }
 </script>
 
