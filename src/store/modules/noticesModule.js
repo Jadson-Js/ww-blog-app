@@ -6,7 +6,8 @@ export default {
             slide: [],
             feed: [],
             article: {},
-            generation: 1
+            generation: 1,
+            hasMore: true
         },
     }),
 
@@ -19,17 +20,16 @@ export default {
             return state.notices.feed
         },
 
-        GET_FEED_LAST_NOTICE(state) {
-            const feed = state.notices.feed
-            return feed[feed.length - 1]
-        },
-
         GET_ARTICLE(state) {
             return state.notices.article
         },
 
         GET_GENERATION(state) {
             return state.notices.generation
+        },
+
+        GET_HAS_MORE(state) {
+            return state.notices.hasMore
         }
     },
 
@@ -44,9 +44,12 @@ export default {
             } 
         },
 
-        SET_RESET_FEED(state) {
-            state.notices.generation = 1
+        SET_RESET(state) {
+            state.notices.slide = []
             state.notices.feed = []
+            state.notices.article = {}
+            state.notices.generation = 1
+            state.notices.hasMore = true
         },
 
         SET_ARTICLE(state, data) {
@@ -56,6 +59,10 @@ export default {
         SET_GENERATION(state) {
             state.notices.generation += 1
         },
+
+        SET_HAS_MORE(state, data) {
+            state.notices.hasMore = data
+        }
     },
 
     actions: {
@@ -85,7 +92,7 @@ export default {
             try {
                 const articles = await axios.get('http://localhost:3000/articles/limit/' + config.limit + '/offset/' + config.offset)
                 
-                commit('SET_FEED', articles.data.data)
+                articles.data.data.length == 3 ? commit('SET_FEED', articles.data.data) : [commit('SET_FEED', articles.data.data), commit('SET_HAS_MORE', false)]
             } catch (error) {
                 alert(error)    
                 console.log(error)
@@ -96,7 +103,7 @@ export default {
             try {
                 const articles = await axios.get('http://localhost:3000/articles/category/' + config.category + '/limit/' + config.limit + '/offset/' + config.offset)
 
-                commit('SET_FEED', articles.data.data)
+                articles.data.data.length == 3 ? commit('SET_FEED', articles.data.data) : [commit('SET_FEED', articles.data.data), commit('SET_HAS_MORE', false)]
             } catch (error) {
                 alert(error)    
                 console.log(error)

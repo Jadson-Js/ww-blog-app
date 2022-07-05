@@ -1,0 +1,6 @@
+Problema: 
+    Component de 'mais noticias', tem a função de se esconder quando não há mais noticias, porém só
+    funciona na home
+
+Solução: 
+    

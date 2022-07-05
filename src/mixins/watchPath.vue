@@ -9,7 +9,7 @@
                 }
 
                 if (newRoute.name != 'login' || newRoute.name != 'profile') {
-                    this.$store.commit('SET_RESET_FEED')
+                    this.$store.commit('SET_RESET')
 
                     if (this.$route.params.category == undefined) {
                         const config = {

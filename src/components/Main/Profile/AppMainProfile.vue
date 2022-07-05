@@ -24,7 +24,7 @@
         },
         computed: mapGetters(['GET_FEED']),
         mounted() {
-            this.$store.commit('SET_RESET_FEED')
+            this.$store.commit('SET_RESET')
             this.$store.dispatch('getAllNotices')
         }
     }
