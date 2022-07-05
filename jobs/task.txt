@@ -1,6 +1,13 @@
 Problema: 
-    Component de 'mais noticias', tem a função de se esconder quando não há mais noticias, porém só
-    funciona na home
+    Em report, ao selecionar nova categoria, deve chamar a api para criar a categoria e automaticamente
+    postar a noticia nessa categoria
 
 Solução: 
+    1.0 Rota de api para criar categoria, retorna dados da nova categoria criada
+
+    2.0 No component, verifique se o select escolheu nova categoria
+    2.1 Se sim,
+        2.1.1 Crie a nova categoria pela Api e depois, em um state, indique qual o id dessa categoria
+        2.1.2 Chame Api para criar noticia, e indique a categoria pelo state do passo passado
+    
     

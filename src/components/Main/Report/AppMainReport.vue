@@ -46,14 +46,24 @@
 
         data['content'] = document.querySelector('.ql-editor').innerHTML
 
+
+        if (data.CategoryId == 'new') {
+          await this.$store.dispatch('createCategoryByApi', data.newCategoryTitle)
+
+          data['CategoryId'] = this.$store.getters.GET_NEW_CATEGORY_ID
+        }
+
         await this.$store.dispatch('reportNotice', data)
 
         if (this.$store.getters.GET_SUCCESS) {
 
-          this.$router.replace({ name: 'profile' })
+          this.$router.replace({
+            name: 'profile'
+          })
         } else {
           alert('Fracasso')
         }
+
       }
     }
   };

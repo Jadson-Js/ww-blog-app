@@ -20,7 +20,9 @@ export default {
     },
 
     actions: {
-        async reportNotice({ commit }, formData) {
+        async reportNotice({
+            commit
+        }, formData) {
             const options = {
                 method: 'POST',
                 url: 'http://localhost:3000/article',
@@ -37,9 +39,7 @@ export default {
             };
 
             try {
-                const articleCreated = await axios(options)
-                
-                console.log(articleCreated)
+                await axios(options)
 
                 commit('SET_SUCCESS', true)
             } catch (error) {
