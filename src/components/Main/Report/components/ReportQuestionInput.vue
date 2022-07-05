@@ -1,7 +1,7 @@
 <template>
   <label for="inputTitle" class="h5 form-label mt-4 mt-md-0 report__label">Título do artigo:</label>
   <input type="text" name="title" id="inputTitle" class="form-control report__input"
-    placeholder="Como tankar o Bostil" value="nventore neque maxime" required>
+    placeholder="Como tankar o Bostil">
  
   <label for="selectCategory" class="h5 form-label report__label">Categoria do artigo:</label>
   <select name="CategoryId" id="selectCategory" class="form-select" v-model="category" required>

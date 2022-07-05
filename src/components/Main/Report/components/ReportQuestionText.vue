@@ -2,7 +2,7 @@
     <label for="inputDescription" class="h5 form-label mt-4 report__label">Descrição do artigo:</label>
     <textarea name="description" id="inputDescription" class="form-control mb-4 report__input"
         placeholder="-Como tankar o bostil? 
--É essa desgraça desde 1500… QUEM PUDER FUJA NEM QUE SEJA POR MEIOS ILEGAIS." required>nventore neque maxime nventore neque maxime nventore neque maxime</textarea>
+-É essa desgraça desde 1500… QUEM PUDER FUJA NEM QUE SEJA POR MEIOS ILEGAIS."></textarea>
     
 
     <label for="inputContent" class="h5 form-label report__label">Conteúdo do artigo:</label>

@@ -38,32 +38,58 @@
     methods: {
       async createNotice(form) {
         const formData = new FormData(form)
-        let data = {}
+        
+        const formFormated = this.fillDataForm(formData)
 
-        for (let [name, value] of formData) {
-          data[name] = value ? value : undefined
+        if (formFormated.dataValid == true) {
+          this.createNewCategory(formFormated)
+
+          await this.$store.dispatch('reportNotice', formFormated)
+
+          this.verifySuccess()
+        } else {
+          alert('Preencha todos os inputs')
         }
+      },
 
+      fillDataForm (formData) {
+        let data = {}
+        let dataValid
         data['content'] = document.querySelector('.ql-editor').innerHTML
 
+        for (let [name, value] of formData) {
+          console.log(value)
 
-        if (data.CategoryId == 'new') {
-          await this.$store.dispatch('createCategoryByApi', data.newCategoryTitle)
-
-          data['CategoryId'] = this.$store.getters.GET_NEW_CATEGORY_ID
+          if (value.name == "" || value == "") {
+            dataValid = false
+          } else {
+            data[name] = value
+            dataValid = true
+          }
         }
 
-        await this.$store.dispatch('reportNotice', data)
+        return {
+          data,
+          dataValid
+        }
+      },
 
+      async createNewCategory(formFormated) {
+        if (formFormated.CategoryId == 'new') {
+            await this.$store.dispatch('createCategoryByApi', formFormated.newCategoryTitle)
+
+            formFormated['CategoryId'] = this.$store.getters.GET_NEW_CATEGORY_ID
+          }
+      },
+
+      verifySuccess() {
         if (this.$store.getters.GET_SUCCESS) {
-
-          this.$router.replace({
-            name: 'profile'
-          })
-        } else {
-          alert('Fracasso')
-        }
-
+            this.$router.replace({
+              name: 'profile'
+            })
+          } else {
+            alert('Fracasso')
+          }
       }
     }
   };
