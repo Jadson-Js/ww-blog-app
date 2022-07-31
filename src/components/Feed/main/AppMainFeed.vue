@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-12 col-md-4 home__posts">
-                <AppMainHomeColumn v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost" />
+                <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost" />
             </div>
         </div>
     </div>
@@ -21,13 +21,13 @@
     } from 'vuex'
 
     import FeedNotice from './Model/FeedNotice.vue'
-    import AppMainHomeColumn from './AppMainHomeColumn.vue'
+    import AppMainFeedCard from './AppMainFeedCard.vue'
     import MoreNotices from './components/MoreNotices.vue'
 
     export default {
         components: {
             FeedNotice,
-            AppMainHomeColumn,
+            AppMainFeedCard,
             MoreNotices
         },
         computed: {

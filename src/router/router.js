@@ -7,12 +7,12 @@ import store from '../store/store'
 
 // IMPORTS OF COMPONENTS
 // Header 
-const AppHeaderSlide = () => import('../components/Header/Slide/AppHeaderSlide.vue')
-const AppHeaderCategory = () => import('../components/Header/Category/AppHeaderCategory.vue')
-const AppHeaderNotice = () => import('../components/Header/Notice/AppHeaderNotice.vue')
+const AppHeaderSlide = () => import('../components/Slide/header/AppHeaderSlide.vue')
+const AppHeaderCategoryTitle = () => import('../components/Category/header/AppHeaderCategoryTitle.vue')
+const AppHeaderNotice = () => import('../components/Notice/header/AppHeaderNotice.vue')
 
 // Main
-const AppMainHomeContent = () => import('../components/Main/Home/AppMainHome.vue');
+const AppMainFeed = () => import('../components/Feed/main/AppMainFeed.vue');
 const AppMainNotice = () => import('../components/Main/Notice/AppMainNotice.vue')
 const AppMainLogin = () => import('../components/Main/Login/AppMainLogin.vue')
 const AppMainProfile = () => import('../components/Main/Profile/AppMainProfile.vue')
@@ -33,15 +33,15 @@ const router = createRouter({
             name: 'home',
             components: {
                 header: AppHeaderSlide,
-                main: AppMainHomeContent
+                main: AppMainFeed
             }
         },
         {
             path: '/:category',
             name: 'category',
             components: {
-                header: AppHeaderCategory,
-                main: AppMainHomeContent
+                header: AppHeaderCategoryTitle,
+                main: AppMainFeed
             }
         },
         {

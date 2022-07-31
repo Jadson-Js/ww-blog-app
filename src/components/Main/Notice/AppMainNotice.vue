@@ -49,7 +49,7 @@
     import { mapGetters } from 'vuex'
 
     import AppMainNoticeMore from './AppMainNoticeMore.vue'
-    import AppMainHome from '../Home/AppMainHome.vue'
+    import AppMainHome from '../../Feed/main/AppMainFeed.vue'
 
     export default {
         components: {
