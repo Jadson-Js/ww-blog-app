@@ -42,19 +42,19 @@
 
     <AppMainNoticeMore />
 
-    <AppMainHome />
+    <AppMainFeed />
 </template>
 
 <script>
     import { mapGetters } from 'vuex'
 
     import AppMainNoticeMore from './AppMainNoticeMore.vue'
-    import AppMainHome from '../../Feed/main/AppMainFeed.vue'
+    import AppMainFeed from '../../Feed/main/AppMainFeed.vue'
 
     export default {
         components: {
             AppMainNoticeMore,
-            AppMainHome
+            AppMainFeed
         },
         computed: mapGetters(['GET_ARTICLE'])
     }

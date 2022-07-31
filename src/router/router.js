@@ -13,10 +13,10 @@ const AppHeaderNotice = () => import('../components/Notice/header/AppHeaderNotic
 
 // Main
 const AppMainFeed = () => import('../components/Feed/main/AppMainFeed.vue');
-const AppMainNotice = () => import('../components/Main/Notice/AppMainNotice.vue')
-const AppMainLogin = () => import('../components/Main/Login/AppMainLogin.vue')
-const AppMainProfile = () => import('../components/Main/Profile/AppMainProfile.vue')
-const AppMainReport = () => import('../components/Main/Report/AppMainReport.vue')
+const AppMainNotice = () => import('../components/Notice/main/AppMainNotice.vue')
+const AppMainLogin = () => import('../components/Login/AppMainLogin.vue')
+const AppMainProfile = () => import('../components/Profile/AppMainProfile.vue')
+const AppMainReport = () => import('../components/Report/AppMainReport.vue')
 
 // Errors
 const AppNotFound = () => import('../components/AppNotFound.vue');
