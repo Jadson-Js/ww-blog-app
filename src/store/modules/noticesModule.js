@@ -17,7 +17,6 @@ export default {
         },
 
         GET_FEED(state) {
-            console.log(state.notices.feed)
             return state.notices.feed
         },
 
