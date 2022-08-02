@@ -31,6 +31,7 @@ export default {
 
         SET_CATEGORY_NOTICES(state, data) {
             const columnNotices = {
+                id: data.id,
                 category: data.title,
                 notices: data.articles
             }

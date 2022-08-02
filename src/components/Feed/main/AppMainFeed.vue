@@ -30,14 +30,19 @@
             AppMainFeedCard,
             MoreNotices
         },
+        data() {
+            return {
+                
+            }
+        },
         computed: {
             ...mapGetters(['GET_FEED', 'GET_GENERATION']),
-            categoryIdPost() {
+            categoryIdPost() { 
                 const generationFeed = this.$store.getters.GET_GENERATION
 
-                const limitCategory = this.$store.getters.GET_CATEGORIES.length
+                const categories = this.$store.getters.GET_CATEGORIES
 
-                return generationFeed <= limitCategory ? generationFeed : 1
+                return generationFeed <= categories.length ? categories[generationFeed - 1].id : 1 
             }
         }
     }

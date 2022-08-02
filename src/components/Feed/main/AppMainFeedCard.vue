@@ -2,7 +2,7 @@
     <section class="is-container__new l-post">
         <router-link class="is-link post__title" :to="{name: 'category', params: {category: category}}">
             <h1 class="h4">
-                {{ category }}<font-awesome-icon icon="angle-right" class="title__icon" />
+                {{ category }} <font-awesome-icon icon="angle-right" class="title__icon" />
             </h1>
         </router-link>
 
@@ -21,7 +21,7 @@
         data() {
             return {
                 category: 'Aguarde...',
-                notices: []
+                notices: [],
             }
         },
         components: {
@@ -31,10 +31,10 @@
         async mounted() {
             await this.$store.dispatch('getNoticesByCategoryIdByApi', this.categoryId)
 
-            const categoryNotices = this.$store.getters.GET_CATEGORY_NOTICES[this.categoryId]
+            const categoryNotices = await this.$store.getters.GET_CATEGORY_NOTICES.find(el => el.id == this.categoryId)
 
             this.category = categoryNotices.category
-            this.notices = categoryNotices.notices
+            this.notices =  categoryNotices.notices
         }
     }
 </script>
