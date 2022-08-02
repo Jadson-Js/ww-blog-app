@@ -28,7 +28,7 @@
                     const config = {
                         category: this.$route.params.category,
                         limit: 3,
-                        offset: this.$store.getters.GET_GENERATION * 3
+                        offset: ( this.$store.getters.GET_GENERATION - 1 ) * 3
                     }
 
                     await this.$store.dispatch('getNoticesByApiToCategoryFeed', config)

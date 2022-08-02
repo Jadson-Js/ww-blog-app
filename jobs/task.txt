@@ -11,3 +11,5 @@ Solução:
         2.1.2 Chame Api para criar noticia, e indique a categoria pelo state do passo passado
     
     
+GERAÇÃO 'g'            | 1 | 2 | 3 | 4
+OPERAÇÃO '(g - 1) * 3' | 0 | 3 | 6 | 9

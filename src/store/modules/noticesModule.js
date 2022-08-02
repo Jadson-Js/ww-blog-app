@@ -17,6 +17,7 @@ export default {
         },
 
         GET_FEED(state) {
+            console.log(state.notices.feed)
             return state.notices.feed
         },
 
@@ -102,6 +103,7 @@ export default {
         async getNoticesByApiToCategoryFeed({ commit }, config) {
             try {
                 const articles = await axios.get('http://localhost:3000/articles/category/' + config.category + '/limit/' + config.limit + '/offset/' + config.offset)
+                console.log(articles.data.data.length)
 
                 articles.data.data.length == 3 ? commit('SET_FEED', articles.data.data) : [commit('SET_FEED', articles.data.data), commit('SET_HAS_MORE', false)]
             } catch (error) {
