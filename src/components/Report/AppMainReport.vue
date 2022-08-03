@@ -77,6 +77,10 @@
           }
         }
 
+        if (data.image == undefined) {
+          dataValid = false
+        }
+
         return {
           data,
           dataValid
