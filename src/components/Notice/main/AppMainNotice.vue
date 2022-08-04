@@ -1,42 +1,7 @@
 <template>
     <div class="col-12 col-md-8">
         <main class="mb-4 is-box">
-            <p class="notice__text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius architecto illo obcaecati animi
-                deleniti,
-                dolorum cupiditate accusamus accusantium tempore illum laborum, unde vel quis expedita adipisci
-                alias
-                assumenda laudantium? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius architecto
-                illo obcaecati animi
-                deleniti,
-                dolorum cupiditate accusamus accusantium tempore illum laborum, unde vel quis expedita adipisci
-                alias
-                assumenda laudantium?
-            </p>
-            <p class="notice__text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius architecto illo obcaecati animi
-                deleniti,
-                dolorum cupiditate accusamus accusantium tempore illum laborum, unde vel quis expedita adipisci
-                alias
-                assumenda laudantium? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius architecto
-                illo obcaecati animi
-                deleniti,
-                dolorum cupiditate accusamus accusantium tempore illum laborum, unde vel quis expedita adipisci
-                alias
-                assumenda laudantium?
-            </p>
-            <p class="notice__text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius architecto illo obcaecati animi
-                deleniti,
-                dolorum cupiditate accusamus accusantium tempore illum laborum, unde vel quis expedita adipisci
-                alias
-                assumenda laudantium? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius architecto
-                illo obcaecati animi
-                deleniti,
-                dolorum cupiditate accusamus accusantium tempore illum laborum, unde vel quis expedita adipisci
-                alias
-                assumenda laudantium?
-            </p>
+            <p v-html="GET_ARTICLE.content" class="notice__text"></p>
         </main>
     </div>
 
@@ -65,7 +30,6 @@
 
     .is-box {
         background: #fff;
-        text-transform: capitalize;
         padding: 2em;
     }
 

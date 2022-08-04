@@ -1,15 +1,4 @@
 Problema: 
-    Em report, ao selecionar nova categoria, deve chamar a api para criar a categoria e automaticamente
-    postar a noticia nessa categoria
+    Nas pagina para ver noticia, o conteudo é falso, pegue o conteudo real da noticia e renderize
 
 Solução: 
-    1.0 Rota de api para criar categoria, retorna dados da nova categoria criada
-
-    2.0 No component, verifique se o select escolheu nova categoria
-    2.1 Se sim,
-        2.1.1 Crie a nova categoria pela Api e depois, em um state, indique qual o id dessa categoria
-        2.1.2 Chame Api para criar noticia, e indique a categoria pelo state do passo passado
-    
-    
-GERAÇÃO 'g'            | 1 | 2 | 3 | 4
-OPERAÇÃO '(g - 1) * 3' | 0 | 3 | 6 | 9
