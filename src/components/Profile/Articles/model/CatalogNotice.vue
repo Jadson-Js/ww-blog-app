@@ -31,9 +31,11 @@
         },
         methods: {
             deleteNotice(id) {
-                this.$store.dispatch('deleteNotice', id)
+                if (confirm('Deseja apagar esta noticia?') ) {
+                    this.$store.dispatch('deleteNotice', id)
 
-                this.$router.go()
+                    this.$router.go()
+                }
             },  
             time_ago_in_words_with_parsing(from) {
                 var date = new Date;

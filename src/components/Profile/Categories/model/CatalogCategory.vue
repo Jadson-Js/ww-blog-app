@@ -18,8 +18,10 @@
         props: ['category'],
         methods: {
             deleteCategory(id) {
+                 if (confirm('Deseja apagar esta categoria?') ) {
                 this.$store.dispatch('deleteCategory', id)
                 this.$router.go()   
+                 }
             }
         }
         

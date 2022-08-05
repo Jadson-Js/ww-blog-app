@@ -54,14 +54,14 @@ const router = createRouter({
             }
         },
         {
-            path: '/login',
+            path: '/user/login',
             name: 'login',
             components: {
                 main: AppMainLogin
             }
         },
         {
-            path: '/perfil',
+            path: '/user/perfil',
             name: 'profile',
             components: {
                 main: AppMainProfile
