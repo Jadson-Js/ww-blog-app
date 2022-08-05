@@ -1,6 +1,8 @@
 <template>
   <main class="l-report">
     <div class="container">
+      <h1 class="text-center mb-4 report__title">{{ submit }}</h1>
+
       <form class="needs-validation row" @submit.prevent novalidate>
         <div class="col-12 col-md-5">
           <ReportQuestionImage />
@@ -121,6 +123,10 @@
   .l-report {
     background: #fff;
     padding-top: 1.5em;
+
+    .report__title {
+      font-weight: 600;
+    } 
 
     .report__button {
       background: $color-green;

@@ -7,8 +7,7 @@
             <font-awesome-icon icon="fa-solid fa-ellipsis-vertical" class="dropdown-toggle catalog__control"
                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" />
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <!--<li><router-link class="dropdown-item" :to="{ name: 'editCategory', params: { categoryId: category.id }}">Editar</router-link></li> -->
-                <li class="dropdown-item">Editar</li>
+                <li><router-link class="dropdown-item" :to="{ name: 'editCategory', params: { categoryId: category.id, categoryTitle: category.title }}">Editar</router-link></li> 
                 <li class="dropdown-item" @click="deleteCategory(category.id)">Deletar</li>
             </ul>
     </article>

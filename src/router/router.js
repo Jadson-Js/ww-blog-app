@@ -17,6 +17,7 @@ const AppMainNotice = () => import('../components/Notice/main/AppMainNotice.vue'
 const AppMainLogin = () => import('../components/Login/AppMainLogin.vue')
 const AppMainProfile = () => import('../components/Profile/AppMainProfile.vue')
 const AppMainReport = () => import('../components/Report/AppMainReport.vue')
+const ReportEditCategory = () => import('../components/Report/ReportEditCategory.vue')
 
 // Errors
 const AppNotFound = () => import('../components/AppNotFound.vue');
@@ -92,7 +93,7 @@ const router = createRouter({
             } 
         },
         {
-            path: '/perfil/edit/noticia/:noticeId',
+            path: '/perfil/edit/noticia/:noticeId/:noticeTitle',
             name: 'editReport',
             components: {
                 main: AppMainReport
@@ -105,6 +106,20 @@ const router = createRouter({
                 }
         
                 
+            } 
+        },
+        {
+            path: '/perfil/edit/categoria/:categoryId/:categoryTitle',
+            name: 'editCategory',
+            components: {
+                main: ReportEditCategory
+            },
+            beforeEnter: (to, from, next) => {
+                if(store.getters.GET_IS_LOGGED) {
+                    next()
+                } else {
+                    next('/')
+                }        
             } 
         },
         {

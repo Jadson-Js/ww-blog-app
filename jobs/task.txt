@@ -1,4 +1,127 @@
-Problema: 
-    Nas pagina para ver noticia, o conteudo é falso, pegue o conteudo real da noticia e renderize
+<template>
+    <main class="l-report">
+        <div class="container text-center">
+            <h1 class="m-4 report__title">Editar a categoria</h1>
 
-Solução: 
+            <form class="needs-validation row report__form" @submit.prevent novalidate>
+                <label for="inputTitle" class="h5 form-label report__label">Novo título da categoria:</label>
+                <input type="text" name="title" id="inputTitle" class="form-control report__input"
+                    placeholder="Como tankar o Bostil" :value="$route.params.categoryTitle">
+            </form>
+        </div>
+    </main>
+</template>
+
+
+<script>
+    import {
+        mapGetters
+    } from "vuex";
+
+    export default {
+        data() {
+            return {}
+        },
+        computed: mapGetters(['GET_ARTICLE']),
+        methods: {
+            async createNotice(form) {
+                const formData = new FormData(form)
+
+                const formFormated = this.fillDataForm(formData)
+
+                if (formFormated.dataValid == true) {
+                    await this.createNewCategory(formFormated.data)
+
+                    await this.createOrUpdateNotice(formFormated.data)
+
+                    if (this.$store.getters.GET_SUCCESS) {
+                        this.$router.replace({
+                            name: 'profile'
+                        })
+                    } else {
+                        alert('Fracasso')
+                    }
+                } else {
+                    alert('Preencha todos os inputs')
+                }
+            },
+
+            fillDataForm(formData) {
+                let data = {}
+                let dataValid
+                data['content'] = document.querySelector('.ql-editor').innerHTML
+
+                for (let [name, value] of formData) {
+                    if (value.name == "" || value == "") {
+                        dataValid = false
+                    } else {
+                        data[name] = value
+                        dataValid = true
+                    }
+                }
+
+                if (data.image == undefined) {
+                    dataValid = false
+                }
+
+                return {
+                    data,
+                    dataValid
+                }
+            },
+
+            async createNewCategory(formFormated) {
+                if (formFormated.CategoryId == 'new') {
+                    await this.$store.dispatch('createCategoryByApi', formFormated.newCategoryTitle)
+
+                    formFormated['CategoryId'] = this.$store.getters.GET_NEW_CATEGORY_ID
+                }
+            },
+
+            async createOrUpdateNotice(formData) {
+                if (this.isEdit) {
+                    const noticeId = this.$route.params.noticeId
+                    await this.$store.dispatch('editReportNotice', {
+                        formData,
+                        noticeId
+                    })
+                } else {
+                    await this.$store.dispatch('reportNotice', formData)
+                }
+            }
+        }
+    };
+</script>
+
+<style lang="scss" scoped>
+    @import "src/assets/scss/__utils.scss";
+
+    .report__title {
+        font-weight: 600;
+    }
+
+    .l-report {
+        position: relative;
+        background: #fff;
+        padding-top: 1.5em;
+
+        top: 0;
+        top: 0;
+        top: 0;
+
+        .report__input {
+            width: 14em;
+            margin: auto;
+        }
+
+
+
+
+        .report__button {
+            background: $color-green;
+            color: #fff;
+            border-radius: 10px;
+            margin: 13em 0 2em;
+        }
+    }
+</style>
