@@ -6,8 +6,9 @@
                     const noticeId = this.$route.params.noticeId
 
                     this.$store.dispatch('getNoticesByApiToArticle', noticeId)
-
-                } else if (newRoute.name != 'login' && newRoute.name != 'profile') {
+                } 
+                
+                if (newRoute.name != 'login' && newRoute.name != 'profile' && newRoute.name != 'report' && newRoute.name != 'editReport' && newRoute.name != 'editCategory' ) {
                     this.$store.commit('SET_RESET')
 
                     if (this.$route.params.category == undefined) {

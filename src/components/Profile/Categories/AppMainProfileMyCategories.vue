@@ -16,7 +16,10 @@
         components: {
             CatalogCategory
         },
-        computed: mapGetters(['GET_CATEGORIES'])
+        computed: mapGetters(['GET_CATEGORIES']),
+        mounted () {
+            this.$store.dispatch('getCategoriesByApi')
+        }
     }
 </script>
 

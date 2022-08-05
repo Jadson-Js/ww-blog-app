@@ -86,25 +86,20 @@ export default {
             commit('SET_NEW_CATEGORY_ID', categoryCreated.data.data.id)
         },
 
-        async editCategory({ commit }, data) {
-
+        async editCategory(none, data) {
             const options = {
                 method: 'PUT',
                 url: 'http://localhost:3000/category/' + data.categoryId,
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
                 data: {
                     title: data.title
                 }
             };
 
             try {
-                // await axios(options)
-                console.log(options)
+                await axios(options)
             } catch (error) {
+                alert(error) 
                 console.log(error)
-                commit('SET_SUCCESS', false)
             }
         },
 

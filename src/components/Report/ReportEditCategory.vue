@@ -64,7 +64,7 @@
 
     .l-main {
         height: 100vh;
-        background-image: url('/src/assets/img/bg-sand-lg.jpg');
+        background-image: url('/src/assets/img/bg-city-lg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
