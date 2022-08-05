@@ -4,8 +4,8 @@
             <h1 class="mt-4 mb-4 text-center login__title">Editar a categoria</h1>
 
             <div class="mb-4 login__question">
-                <label for="userName" class="form-label">Novo título para categoria:</label>
-                <input type="text" name="userName" id="userName" :class="['form-control', isValid]" placeholder="Digite seu nome"
+                <label for="title" class="form-label">Novo título para categoria:</label>
+                <input type="text" name="title" id="title" :class="['form-control', isValid]" placeholder="Digite seu nome"
                      :value="$route.params.categoryTitle" required>
 
                 <div class="invalid-feedback">
@@ -43,22 +43,17 @@
             }
         },
         methods: {
-            async login(form) {
+            async editCategory(form) {
                 let formData = new FormData(form)
-                let data = {}
+                let data = { categoryId: this.$route.params.categoryId }
 
                 for (let [name, value] of formData) {
-                    data[name] = value ? value : 'x'
+                    data[name] = value ? value : ''
                 }
 
-                await this.$store.dispatch('authAdminByApi', data)
+                await this.$store.dispatch('editCategory', data)
 
-                if (this.$store.getters.GET_IS_LOGGED) {
-                    this.validCredentials = true
-                    this.$router.replace({ name: 'profile' })
-                } else {
-                    this.validCredentials = false
-                }
+                this.$router.replace({ name: 'profile' })
             }
         }
     }

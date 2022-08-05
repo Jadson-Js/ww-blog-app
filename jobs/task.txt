@@ -1,127 +1,117 @@
 <template>
-    <main class="l-report">
-        <div class="container text-center">
-            <h1 class="m-4 report__title">Editar a categoria</h1>
+    <main class="l-main">
+        <form :class="['needs-validation', isValidated, 'l-login']" @submit.prevent novalidate>
+            <h1 class="mt-4 mb-4 text-center login__title">Editar a categoria</h1>
 
-            <form class="needs-validation row report__form" @submit.prevent novalidate>
-                <label for="inputTitle" class="h5 form-label report__label">Novo título da categoria:</label>
-                <input type="text" name="title" id="inputTitle" class="form-control report__input"
-                    placeholder="Como tankar o Bostil" :value="$route.params.categoryTitle">
-            </form>
-        </div>
+            <div class="mb-4 login__question">
+                <label for="title" class="form-label">Novo título para categoria:</label>
+                <input type="text" name="title" id="title" :class="['form-control', isValid]" placeholder="Digite seu nome"
+                     :value="$route.params.categoryTitle" required>
+
+                <div class="invalid-feedback">
+                    Título invalido
+                </div>
+            </div>
+
+            <div class="mt-2 d-grid">
+                <input type="submit" @click="editCategory($event.target.form)" class="btn login__btn" value="Editar">
+            </div>
+        </form>
     </main>
 </template>
 
-
 <script>
-    import {
-        mapGetters
-    } from "vuex";
-
     export default {
         data() {
-            return {}
+            return {
+                validated: false,
+                validCredentials: undefined,
+            }
         },
-        computed: mapGetters(['GET_ARTICLE']),
-        methods: {
-            async createNotice(form) {
-                const formData = new FormData(form)
-
-                const formFormated = this.fillDataForm(formData)
-
-                if (formFormated.dataValid == true) {
-                    await this.createNewCategory(formFormated.data)
-
-                    await this.createOrUpdateNotice(formFormated.data)
-
-                    if (this.$store.getters.GET_SUCCESS) {
-                        this.$router.replace({
-                            name: 'profile'
-                        })
-                    } else {
-                        alert('Fracasso')
-                    }
-                } else {
-                    alert('Preencha todos os inputs')
-                }
+        computed: {
+            isValidated() {
+                return this.validated ? 'was-validated' : ''
             },
-
-            fillDataForm(formData) {
+            isValid() {
+                if (this.validCredentials == undefined) {
+                    return ''
+                } else if (this.validCredentials == true) {
+                    return 'is-valid'
+                } else {
+                    return 'is-invalid'
+                }
+            }
+        },
+        methods: {
+            async editCategory(form) {
+                let formData = new FormData(form)
                 let data = {}
-                let dataValid
-                data['content'] = document.querySelector('.ql-editor').innerHTML
 
                 for (let [name, value] of formData) {
-                    if (value.name == "" || value == "") {
-                        dataValid = false
-                    } else {
-                        data[name] = value
-                        dataValid = true
-                    }
+                    data[name] = value ? value : ''
                 }
 
-                if (data.image == undefined) {
-                    dataValid = false
-                }
+                console.log(data)
 
-                return {
-                    data,
-                    dataValid
-                }
-            },
+                await this.$store.dispatch('editCategory', data)
 
-            async createNewCategory(formFormated) {
-                if (formFormated.CategoryId == 'new') {
-                    await this.$store.dispatch('createCategoryByApi', formFormated.newCategoryTitle)
-
-                    formFormated['CategoryId'] = this.$store.getters.GET_NEW_CATEGORY_ID
-                }
-            },
-
-            async createOrUpdateNotice(formData) {
-                if (this.isEdit) {
-                    const noticeId = this.$route.params.noticeId
-                    await this.$store.dispatch('editReportNotice', {
-                        formData,
-                        noticeId
-                    })
+                if (this.$store.getters.GET_IS_LOGGED) {
+                    this.validCredentials = true
+                    this.$router.replace({ name: 'profile' })
                 } else {
-                    await this.$store.dispatch('reportNotice', formData)
+                    this.validCredentials = false
                 }
             }
         }
-    };
+    }
 </script>
 
 <style lang="scss" scoped>
-    @import "src/assets/scss/__utils.scss";
+    @import 'src/assets/scss/__utils.scss';
 
-    .report__title {
-        font-weight: 600;
+    .l-main {
+        height: 100vh;
+        background-image: url('/src/assets/img/bg-sand-lg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
-    .l-report {
-        position: relative;
-        background: #fff;
-        padding-top: 1.5em;
+    .l-login {
+        width: 17em;
+        height: 20.5em;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 5px;
 
-        top: 0;
-        top: 0;
-        top: 0;
+        .login__title {
+            text-transform: uppercase;
+            color: $color-dark-black;
+        }
 
-        .report__input {
-            width: 14em;
+        .login__question {
+            width: 90%;
             margin: auto;
         }
 
-
-
-
-        .report__button {
-            background: $color-green;
+        .login__btn {
+            width: 85%;
+            margin: 1em auto 0;
+            background-color: $color-blue-light;
             color: #fff;
-            border-radius: 10px;
-            margin: 13em 0 2em;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    }
+
+    @media (min-width: 762px) {
+        .is-box {
+            margin: auto 1em 0 1em;
         }
     }
 </style>
