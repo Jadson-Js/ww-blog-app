@@ -84,6 +84,16 @@ export default {
             const categoryCreated = await axios(options)
 
             commit('SET_NEW_CATEGORY_ID', categoryCreated.data.data.id)
+        },
+
+        async deleteCategory(none, id) {
+            try {
+                await axios.delete('http://localhost:3000/category/' + id)
+
+            } catch (error) {
+                alert(error)    
+                console.log(error)
+            }
         }
     }
 }

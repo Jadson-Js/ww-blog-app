@@ -17,11 +17,13 @@
 <script>
     export default {
         props: ['category'],
-        deleteCategory(id) {
-            this.$store.dispatch('deleteCategory', id)
-
-            this.$router.go()
-        },
+        methods: {
+            deleteCategory(id) {
+                this.$store.dispatch('deleteCategory', id)
+                this.$router.go()   
+            }
+        }
+        
     }
 </script>
 
