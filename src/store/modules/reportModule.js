@@ -21,11 +21,14 @@ export default {
 
     actions: {
         async reportNotice({ commit }, formData) {
+            let token = document.cookie.split('=')[1]
+
             const options = {
                 method: 'POST',
                 url: 'http://localhost:3000/article',
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `${token}` 
                 },
                 data: {
                     image: formData.image,
@@ -46,11 +49,14 @@ export default {
         },
 
         async editReportNotice({ commit }, data) {
+            let token = document.cookie.split('=')[1]
+
             const options = {
                 method: 'PUT',
                 url: 'http://localhost:3000/article/' + data.noticeId,
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `${token}` 
                 },
                 data: {
                     image: data.formData.image,

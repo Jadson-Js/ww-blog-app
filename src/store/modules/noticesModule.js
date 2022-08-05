@@ -123,8 +123,18 @@ export default {
         },
 
         async deleteNotice(none, id) {
+            let token = document.cookie.split('=')[1]
+
+            const options = {
+                method: 'DELETE',
+                url: 'http://localhost:3000/article/' + id,
+                headers: {
+                    'Authorization': `${token}` 
+                 }
+            };
+
             try {
-                await axios.delete('http://localhost:3000/article/' + id)
+                await axios(options)
 
             } catch (error) {
                 alert(error)    

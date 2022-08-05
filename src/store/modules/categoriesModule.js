@@ -70,16 +70,21 @@ export default {
             }
         },
 
-        async createCategoryByApi({
-            commit
-        }, categoryTitle) {
+        async createCategoryByApi({ commit }, categoryTitle) {
+            let token = document.cookie.split('=')[1]
+
             const options = {
                 method: 'POST',
                 url: 'http://localhost:3000/category',
+                headers: {
+                   'Authorization': `${token}` 
+                },
                 data: {
                     title: categoryTitle,
                 }
             };
+
+            console.log(options)
 
             const categoryCreated = await axios(options)
 
@@ -87,9 +92,14 @@ export default {
         },
 
         async editCategory(none, data) {
+            let token = document.cookie.split('=')[1]
+
             const options = {
                 method: 'PUT',
                 url: 'http://localhost:3000/category/' + data.categoryId,
+                headers: {
+                    'Authorization': `${token}` 
+                 },
                 data: {
                     title: data.title
                 }
@@ -104,8 +114,18 @@ export default {
         },
 
         async deleteCategory(none, id) {
+            let token = document.cookie.split('=')[1]
+
+            const options = {
+                method: 'DELETE',
+                url: 'http://localhost:3000/category/' + id,
+                headers: {
+                    'Authorization': `${token}` 
+                 }
+            };
+
             try {
-                await axios.delete('http://localhost:3000/category/' + id)
+                await axios(options)
 
             } catch (error) {
                 alert(error)    
