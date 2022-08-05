@@ -6,7 +6,7 @@
             </h1>
         </router-link>
 
-        <ColumnNotice 
+        <FeedCardNotice 
             v-for="(value, key) in notices" :key="key"
             :category="category"
             :notice="value"
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import ColumnNotice from './Model/ColumnNotice.vue'
+    import FeedCardNotice from './Model/FeedCardNotice.vue'
 
     export default {
         data() {
@@ -25,7 +25,7 @@
             }
         },
         components: {
-           ColumnNotice
+           FeedCardNotice
         },
         props: ['categoryId'],
         async mounted() {

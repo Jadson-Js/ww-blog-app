@@ -16,7 +16,7 @@
 
         <div class="d-grid col">
           <input type="submit" @click="createNotice($event.target.form)" class="btn btn-lg report__button"
-            value="Publicar artigo">
+            :value="submit">
         </div>
       </form>
     </div>
@@ -38,7 +38,8 @@
     },
     data() {
       return {
-        isEdit: false
+        isEdit: false,
+        submit: 'Publicar artigo'
       }
     },
     computed: mapGetters(['GET_ARTICLE']),
@@ -108,6 +109,7 @@
       if (this.$route.name == 'editReport') {
         await this.$store.dispatch('getNoticesByApiToArticle', this.$route.params.noticeId)
         this.isEdit = true
+        this.submit = 'Editar artigo'
       }
     }
   };

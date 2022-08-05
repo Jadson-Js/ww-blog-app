@@ -6,26 +6,20 @@
             </router-link>
         </div>
 
-        <h1 class="h2 mb-4 profile__title">Meus Artigos</h1>
+        <AppMainProfileMyArticles />
 
-        <div class="d-flex justify-content-around flex-wrap">
-            <CatalogNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
-        </div>
+        <AppMainProfileMyCategories />
     </main>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
-    import CatalogNotice from './Model/CatalogNotice.vue'
+    import AppMainProfileMyArticles from './Articles/AppMainProfileMyArticles.vue'
+    import AppMainProfileMyCategories from './Categories/AppMainProfileMyCategories.vue'
 
     export default {
         components: {
-            CatalogNotice
-        },
-        computed: mapGetters(['GET_FEED']),
-        mounted() {
-            this.$store.commit('SET_RESET')
-            this.$store.dispatch('getAllNotices')
+            AppMainProfileMyArticles,
+            AppMainProfileMyCategories
         }
     }
 </script>
@@ -41,13 +35,5 @@
         background: $color-green;
         color: #fff;
         margin: 1em;
-    }
-
-    .profile__title {
-        color: $color-dark-black;
-        font-weight: 600;
-    }
-
-    @media (min-width: 762px) {
     }
 </style>
