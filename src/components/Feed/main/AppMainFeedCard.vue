@@ -29,9 +29,10 @@
         },
         props: ['categoryId'],
         async mounted() {
-            await this.$store.dispatch('getNoticesByCategoryIdByApi', this.categoryId)
+            const awaitCategoryId = await this.categoryId
+            await this.$store.dispatch('getNoticesByCategoryIdByApi', awaitCategoryId)
 
-            const categoryNotices = await this.$store.getters.GET_CATEGORY_NOTICES.find(el => el.id == this.categoryId)
+            const categoryNotices = await this.$store.getters.GET_CATEGORY_NOTICES.find(el => el.id == awaitCategoryId)
 
             this.category = categoryNotices.category
             this.notices =  categoryNotices.notices

@@ -49,7 +49,7 @@ export default {
             commit
         }) {
             try {
-                const categories = await axios.get('http://localhost:3000/categories')
+                const categories = await axios.get('https://ww-blog-api.herokuapp.com/categories')
 
                 commit('SET_CATEGORIES', categories.data.data)
             } catch (error) {
@@ -62,7 +62,7 @@ export default {
             commit
         }, categoryId) {
             try {
-                const data = await axios.get('http://localhost:3000/category/' + categoryId)
+                const data = await axios.get('https://ww-blog-api.herokuapp.com/category/' + categoryId)
 
                 commit('SET_CATEGORY_NOTICES', data.data.data)
             } catch (error) {
@@ -75,7 +75,7 @@ export default {
 
             const options = {
                 method: 'POST',
-                url: 'http://localhost:3000/category',
+                url: 'https://ww-blog-api.herokuapp.com/category',
                 headers: {
                    'Authorization': `${token}` 
                 },
@@ -96,7 +96,7 @@ export default {
 
             const options = {
                 method: 'PUT',
-                url: 'http://localhost:3000/category/' + data.categoryId,
+                url: 'https://ww-blog-api.herokuapp.com/category/' + data.categoryId,
                 headers: {
                     'Authorization': `${token}` 
                  },
@@ -118,7 +118,7 @@ export default {
 
             const options = {
                 method: 'DELETE',
-                url: 'http://localhost:3000/category/' + id,
+                url: 'https://ww-blog-api.herokuapp.com/category/' + id,
                 headers: {
                     'Authorization': `${token}` 
                  }

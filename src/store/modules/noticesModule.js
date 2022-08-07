@@ -68,7 +68,7 @@ export default {
     actions: {
         async getNoticesByApiToSlide({ commit }, config) {
             try {
-                const articles = await axios.get('http://localhost:3000/articles/limit/' + config.limit + '/offset/' + config.offset)
+                const articles = await axios.get('https://ww-blog-api.herokuapp.com/articles/limit/' + config.limit + '/offset/' + config.offset)
 
                 commit('SET_SLIDE', articles.data.data)
             } catch (error) {
@@ -79,7 +79,7 @@ export default {
 
         async getAllNotices({ commit }) {
             try {
-                const articles = await axios.get('http://localhost:3000/articles')
+                const articles = await axios.get('https://ww-blog-api.herokuapp.com/articles')
                 
                 commit('SET_FEED', articles.data.data)
             } catch (error) {
@@ -90,7 +90,7 @@ export default {
 
         async getNoticesByApiToFeed({ commit }, config) {
             try {
-                const articles = await axios.get('http://localhost:3000/articles/limit/' + config.limit + '/offset/' + config.offset)
+                const articles = await axios.get('https://ww-blog-api.herokuapp.com/articles/limit/' + config.limit + '/offset/' + config.offset)
                 
                 articles.data.data.length == 3 ? commit('SET_FEED', articles.data.data) : [commit('SET_FEED', articles.data.data), commit('SET_HAS_MORE', false)]
             } catch (error) {
@@ -101,7 +101,7 @@ export default {
 
         async getNoticesByApiToCategoryFeed({ commit }, config) {
             try {
-                const articles = await axios.get('http://localhost:3000/articles/category/' + config.category + '/limit/' + config.limit + '/offset/' + config.offset)
+                const articles = await axios.get('https://ww-blog-api.herokuapp.com/articles/category/' + config.category + '/limit/' + config.limit + '/offset/' + config.offset)
                 console.log(articles.data.data.length)
 
                 articles.data.data.length == 3 ? commit('SET_FEED', articles.data.data) : [commit('SET_FEED', articles.data.data), commit('SET_HAS_MORE', false)]
@@ -113,7 +113,7 @@ export default {
 
         async getNoticesByApiToArticle({ commit }, id) {
             try {
-                const article = await axios.get('http://localhost:3000/article/' + id)
+                const article = await axios.get('https://ww-blog-api.herokuapp.com/article/' + id)
 
                 commit('SET_ARTICLE', article.data.data)
             } catch (error) {
@@ -127,7 +127,7 @@ export default {
 
             const options = {
                 method: 'DELETE',
-                url: 'http://localhost:3000/article/' + id,
+                url: 'https://ww-blog-api.herokuapp.com/article/' + id,
                 headers: {
                     'Authorization': `${token}` 
                  }

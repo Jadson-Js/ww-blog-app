@@ -25,7 +25,7 @@ export default {
 
             const options = {
                 method: 'POST',
-                url: 'http://localhost:3000/article',
+                url: 'https://ww-blog-api.herokuapp.com/article',
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `${token}` 
@@ -53,7 +53,7 @@ export default {
 
             const options = {
                 method: 'PUT',
-                url: 'http://localhost:3000/article/' + data.noticeId,
+                url: 'https://ww-blog-api.herokuapp.com/article/' + data.noticeId,
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `${token}` 

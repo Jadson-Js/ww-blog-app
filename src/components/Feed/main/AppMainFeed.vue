@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-12 col-md-4 home__posts">
-                <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost" />
+                <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost()" />
             </div>
         </div>
     </div>
@@ -35,13 +35,17 @@
             }
         },
         computed: {
-            ...mapGetters(['GET_FEED', 'GET_GENERATION']),
-            categoryIdPost() { 
+            ...mapGetters(['GET_FEED', 'GET_GENERATION'])
+        },
+        methods: {
+            async categoryIdPost() { 
                 const generationFeed = this.$store.getters.GET_GENERATION
+
+                await this.$store.dispatch('getCategoriesByApi')
 
                 const categories = this.$store.getters.GET_CATEGORIES
 
-                return generationFeed <= categories.length ? categories[generationFeed - 1].id : 1 
+                return await generationFeed <= categories.length ? categories[generationFeed - 1].id : 1 
             }
         }
     }

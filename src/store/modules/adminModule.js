@@ -24,7 +24,7 @@ export default {
         async authAdminByApi({ commit }, data) {
             const options = {
                 method: 'POST',
-                url: 'http://localhost:3000/login',
+                url: 'https://ww-blog-api.herokuapp.com/login',
                 data: {
                     name: data.userName,
                     password: data.userPassword
