@@ -1,5 +1,5 @@
 <template>
-    <article class="is-container__new d-flex flex-column flex-sm-row-reverse justify-content-sm-end align-items-start">
+    <article class="is-container__new d-flex flex-column flex-sm-row-reverse justify-content-sm-end align-items-start feed__notice">
         <div class="ms-sm-3">
             <div class="d-inline-block mb-2"> <!-- Mostre a categorias dinamicamente & o horario q foi postado também -->
                 <span class="d-inline is-new__category">{{ notice.category.title }} - </span><span class="is-new__time">{{ time_ago_in_words_with_parsing(notice.updatedAt) }}</span>
@@ -61,10 +61,14 @@
 <style lang="scss" scoped>
     @import 'src/assets/scss/__utils.scss';
 
+    .feed__notice:last-of-type {
+        margin: 0;
+    }
+
     .new__linkImg,
     .new__img {
-        width: 15em;
-        height: 10em;
+        width: 100%;
+        height: 13em;
         margin: 0 auto;
     }
     
@@ -72,6 +76,8 @@
     @media (min-width: 576px) {
         .new__linkImg,
         .new__img {
+            width: 15em;
+            height: 10em;
             margin: 0 ;
         }
     }
