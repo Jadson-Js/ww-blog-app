@@ -16,7 +16,7 @@
         </div>
 
         <router-link class="new__linkImg" :to="{name: 'notice', params: {category: notice.category.title, noticeId: notice.id, noticeTitle: notice.title}}">
-            <img :src="'https://ww-blog-api.herokuapp.com/uploads/' + notice.ImageName" class="mt-2 is-linkImg new__img" alt="">
+            <img :src="'https://ww-blog-api.herokuapp.com/uploads/' + notice.ImageName" class="mt-2 is-linkImg img-fluid new__img" alt="">
         </router-link>
     </article>
 </template>
@@ -65,6 +65,10 @@
     .new__img {
         width: 15em;
         height: 10em;
+    }
+
+    .new__img {
+        margin: auto;
     }
     
 
