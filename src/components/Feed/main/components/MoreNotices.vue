@@ -43,7 +43,7 @@
 
     .home__more {
         width: 10em;
-        margin: 1em auto;
+        margin: auto auto 1em;
         border-radius: 20px;
         background: $color-blue-light;
         color: #fff;

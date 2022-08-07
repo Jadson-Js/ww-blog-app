@@ -31,21 +31,20 @@
             MoreNotices
         },
         data() {
-            return {
-            }
+            return {}
         },
         computed: {
             ...mapGetters(['GET_FEED', 'GET_GENERATION'])
         },
         methods: {
-            async categoryIdPost() { 
+            async categoryIdPost() {
                 const generationFeed = this.$store.getters.GET_GENERATION
 
                 await this.$store.dispatch('getCategoriesByApi')
 
                 const categories = this.$store.getters.GET_CATEGORIES
 
-                return await generationFeed <= categories.length ? categories[generationFeed - 1].id : 1 
+                return await generationFeed <= categories.length ? categories[generationFeed - 1].id : 1
             }
         }
     }

@@ -61,10 +61,6 @@
 <style lang="scss" scoped>
     @import 'src/assets/scss/__utils.scss';
 
-    .feed__notice:last-of-type {
-        margin: 0;
-    }
-
     .new__linkImg,
     .new__img {
         width: 100%;
