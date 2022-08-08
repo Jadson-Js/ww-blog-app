@@ -27,7 +27,9 @@
 
 
 <script>
-  import { mapGetters } from "vuex";
+  import {
+    mapGetters
+  } from "vuex";
   import ReportQuestionImage from "./components/ReportQuestionImage.vue";
   import ReportQuestionInput from "./components/ReportQuestionInput.vue";
   import ReportQuestionText from './components/ReportQuestionText.vue'
@@ -46,16 +48,36 @@
     },
     computed: mapGetters(['GET_ARTICLE']),
     methods: {
+      // async xxx(form) {
+      //   const formData = new FormData(form)
+      //   formData.append('image', File)
+
+      //   axios.post('https://api.imgbb.com/1/upload?expiration=600&key=f7bb05661ec4bb0c7f7cf05123eab4a6', formData)
+      //     .then((response) => {
+      //       console.log('response', response)
+      //       console.log('response URL', response.data.data.image.url)
+      //       console.log('success')
+      //     })
+      //     .catch((error) => {
+      //       console.log('error', error)
+      //       alert('try agian')
+      //     })
+      // },
+
       async createNotice(form) {
         const formData = new FormData(form)
 
         const formFormated = this.fillDataForm(formData)
 
         if (formFormated.dataValid == true) {
+          formData.append('image', File)
+          
+          await this.$store.dispatch('uploadImg', formData)
+
           await this.createNewCategory(formFormated.data)
 
           await this.createOrUpdateNotice(formFormated.data)
-        
+
           if (this.$store.getters.GET_SUCCESS) {
             this.$router.replace({ name: 'profile' })
           } else {
@@ -72,16 +94,12 @@
         data['content'] = document.querySelector('.ql-editor').innerHTML
 
         for (let [name, value] of formData) {
-          if (value.name == "" || value == "") {
+          if (value.name == "" || value == "" && value.image == undefined) {
             dataValid = false
           } else {
             data[name] = value
             dataValid = true
           }
-        }
-
-        if (data.image == undefined) {
-          dataValid = false
         }
 
         return {
@@ -101,7 +119,10 @@
       async createOrUpdateNotice(formData) {
         if (this.isEdit) {
           const noticeId = this.$route.params.noticeId
-          await this.$store.dispatch('editReportNotice', {formData, noticeId})
+          await this.$store.dispatch('editReportNotice', {
+            formData,
+            noticeId
+          })
         } else {
           await this.$store.dispatch('reportNotice', formData)
         }
@@ -126,7 +147,7 @@
 
     .report__title {
       font-weight: 600;
-    } 
+    }
 
     .report__button {
       background: $color-green;

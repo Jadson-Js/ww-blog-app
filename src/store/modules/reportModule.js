@@ -3,35 +3,64 @@ import axios from 'axios'
 export default {
     state: () => ({
         report: {
-            success: false
+            success: false,
+            imageUrl: ''
         },
     }),
 
     getters: {
         GET_SUCCESS(state) {
             return state.report.success
-        }
+        },
+
+        GET_IMAGE_URL(state) {
+            return state.report.imageUrl
+        },
     },
 
     mutations: {
         SET_SUCCESS(state, data) {
             state.report.success = data
+        },
+
+        SET_IMAGE_URL(state, url) {
+            state.report.imageUrl = url
         }
     },
 
     actions: {
-        async reportNotice({ commit }, formData) {
+        async uploadImg({ commit }, image) {
+
+            axios.post('https://api.imgbb.com/1/upload?expiration=600&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
+                .then((response) => {
+                    console.log('response', response)
+                    console.log('response URL', response.data.data.image.url)
+                    console.log('success')
+
+                    commit('SET_IMAGE_URL', response.data.data.image.url)
+                })
+                .catch((error) => {
+                    console.log('error', error)
+                    alert('try agian')
+                })
+        },
+
+        async reportNotice({
+            getters,
+            commit
+        }, formData) {
+            console.log(getters.GET_IMAGE_URL)
+
             let token = document.cookie.split('=')[1]
 
             const options = {
                 method: 'POST',
                 url: 'https://ww-blog-api.herokuapp.com/article',
                 headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Authorization': `${token}` 
+                    'Authorization': `${token}`
                 },
                 data: {
-                    image: formData.image,
+                    ImageName: getters.GET_IMAGE_URL,
                     title: formData.title,
                     description: formData.description,
                     content: formData.content,
@@ -48,18 +77,20 @@ export default {
             }
         },
 
-        async editReportNotice({ commit }, data) {
+        async editReportNotice({
+            getters,
+            commit
+        }, data) {
             let token = document.cookie.split('=')[1]
 
             const options = {
                 method: 'PUT',
                 url: 'https://ww-blog-api.herokuapp.com/article/' + data.noticeId,
                 headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Authorization': `${token}` 
+                    'Authorization': `${token}`
                 },
                 data: {
-                    image: data.formData.image,
+                    ImageName: getters.GET_IMAGE_URL,
                     title: data.formData.title,
                     description: data.formData.description,
                     content: data.formData.content,
