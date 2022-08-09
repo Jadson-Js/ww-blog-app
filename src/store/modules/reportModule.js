@@ -31,7 +31,7 @@ export default {
     actions: {
         async uploadImg({ commit }, image) {
 
-            axios.post('https://api.imgbb.com/1/upload?expiration=600&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
+            axios.post('https://api.imgbb.com/1/upload?expiration=31536000&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
                 .then((response) => {
                     console.log('response', response)
                     console.log('response URL', response.data.data.image.url)
