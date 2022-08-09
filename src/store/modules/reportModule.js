@@ -33,10 +33,6 @@ export default {
 
             axios.post('https://api.imgbb.com/1/upload?expiration=31536000&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
                 .then((response) => {
-                    console.log('response', response)
-                    console.log('response URL', response.data.data.image.url)
-                    console.log('success')
-
                     commit('SET_IMAGE_URL', response.data.data.image.url)
                 })
                 .catch((error) => {
@@ -49,9 +45,7 @@ export default {
             getters,
             commit
         }, formData) {
-            console.log(getters.GET_IMAGE_URL)
-
-            let token = document.cookie.split('=')[1]
+            let token = document.cookie.split('token=')[1]
 
             const options = {
                 method: 'POST',
@@ -81,7 +75,7 @@ export default {
             getters,
             commit
         }, data) {
-            let token = document.cookie.split('=')[1]
+            let token = document.cookie.split('token=')[1]
 
             const options = {
                 method: 'PUT',

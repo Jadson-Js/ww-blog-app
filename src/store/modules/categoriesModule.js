@@ -71,7 +71,7 @@ export default {
         },
 
         async createCategoryByApi({ commit }, categoryTitle) {
-            let token = document.cookie.split('=')[1]
+            let token = document.cookie.split('token=')[1]
 
             const options = {
                 method: 'POST',
@@ -92,7 +92,7 @@ export default {
         },
 
         async editCategory(none, data) {
-            let token = document.cookie.split('=')[1]
+            let token = document.cookie.split('token=')[1]
 
             const options = {
                 method: 'PUT',
@@ -114,7 +114,7 @@ export default {
         },
 
         async deleteCategory(none, id) {
-            let token = document.cookie.split('=')[1]
+            let token = document.cookie.split('token=')[1]
 
             const options = {
                 method: 'DELETE',

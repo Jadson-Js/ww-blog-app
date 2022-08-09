@@ -123,7 +123,7 @@ export default {
         },
 
         async deleteNotice(none, id) {
-            let token = document.cookie.split('=')[1]
+            let token = document.cookie.split('token=')[1]
 
             const options = {
                 method: 'DELETE',
