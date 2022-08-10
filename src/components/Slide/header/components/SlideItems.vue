@@ -3,7 +3,7 @@
     <li v-for="(value, key) in GET_SLIDE" :key="key" :class="['carousel-item', isActive(key) ]"
       data-bs-interval="4000">
 
-      <img :src="value.ImageName" class="d-block slide__img">
+      <img :src="value.ImageUrl" class="d-block slide__img">
 
       <div class="carousel-caption  d-md-block">
         <router-link class="h1 is-link slide__title"
