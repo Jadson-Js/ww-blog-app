@@ -48,22 +48,6 @@
     },
     computed: mapGetters(['GET_ARTICLE']),
     methods: {
-      // async xxx(form) {
-      //   const formData = new FormData(form)
-      //   formData.append('image', File)
-
-      //   axios.post('https://api.imgbb.com/1/upload?expiration=600&key=f7bb05661ec4bb0c7f7cf05123eab4a6', formData)
-      //     .then((response) => {
-      //       console.log('response', response)
-      //       console.log('response URL', response.data.data.image.url)
-      //       console.log('success')
-      //     })
-      //     .catch((error) => {
-      //       console.log('error', error)
-      //       alert('try agian')
-      //     })
-      // },
-
       async createNotice(form) {
         const formData = new FormData(form)
 
@@ -71,7 +55,7 @@
 
         if (formFormated.dataValid == true) {
           formData.append('image', File)
-          
+
           await this.$store.dispatch('uploadImg', formData)
 
           await this.createNewCategory(formFormated.data)
@@ -119,6 +103,7 @@
       async createOrUpdateNotice(formData) {
         if (this.isEdit) {
           const noticeId = this.$route.params.noticeId
+
           await this.$store.dispatch('editReportNotice', {
             formData,
             noticeId

@@ -6,7 +6,7 @@
             <div class="mb-4 login__question">
                 <label for="userName" class="form-label">Nome:</label>
                 <input type="text" name="userName" id="userName" :class="['form-control', isValid]" 
-                    placeholder="Digite seu nome" required>
+                    value="Baba Yaga" placeholder="Digite seu nome" required>
                 <div class="invalid-feedback">
                     Nome ou senha incorreto!
                 </div>
@@ -15,7 +15,7 @@
             <div class="login__question">
                 <label for="userPassword" class="form-label">Senha:</label>
                 <input type="password" name="userPassword" id="userPassword" :class="['form-control', isValid]" 
-                    placeholder="Digite sua senha" required>
+                    value="babayaga-forever" placeholder="Digite sua senha" required>
                 <div class="invalid-feedback">
                     Nome ou senha incorreto!
                 </div>

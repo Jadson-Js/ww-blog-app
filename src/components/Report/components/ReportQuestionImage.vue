@@ -23,13 +23,11 @@
         computed: mapGetters(['GET_ARTICLE']),
         methods: {
             onFileChange(e) {
-                // const reportInput = document.querySelector("#reportInput")
                 const inputImageLabel = document.querySelector("#inputImageLabel")
                 const file = e.target.files[0];
 
                 this.url = URL.createObjectURL(file);
-
-                // reportInput.remove('is-cameraIcon')
+                
                 inputImageLabel.classList.add('d-none')
 
                 document.querySelector(".report__image").style.backgroundImage =`url(${this.url})`;

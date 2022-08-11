@@ -4,7 +4,7 @@ export default {
     state: () => ({
         report: {
             success: false,
-            imageUrl: ''
+            ImageUrl: ''
         },
     }),
 
@@ -14,7 +14,7 @@ export default {
         },
 
         GET_IMAGE_URL(state) {
-            return state.report.imageUrl
+            return state.report.ImageUrl
         },
     },
 
@@ -24,16 +24,16 @@ export default {
         },
 
         SET_IMAGE_URL(state, url) {
-            state.report.imageUrl = url
+            state.report.ImageUrl = url   
         }
     },
 
     actions: {
         async uploadImg({ commit }, image) {
-
-            axios.post('https://api.imgbb.com/1/upload?expiration=31536000&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
+            await axios.post('https://api.imgbb.com/1/upload?expiration=31536000&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
                 .then((response) => {
-                    commit('SET_IMAGE_URL', response.data.data.image.url)
+
+                    response.data.data.medium != undefined ? commit('SET_IMAGE_URL', response.data.data.medium.url) : commit('SET_IMAGE_URL', response.data.data.image.url)
                 })
                 .catch((error) => {
                     console.log('error', error)
@@ -54,7 +54,7 @@ export default {
                     'Authorization': `${token}`
                 },
                 data: {
-                    ImageName: getters.GET_IMAGE_URL,
+                    ImageUrl: await getters.GET_IMAGE_URL,
                     title: formData.title,
                     description: formData.description,
                     content: formData.content,
@@ -67,6 +67,7 @@ export default {
 
                 commit('SET_SUCCESS', true)
             } catch (error) {
+                console.log(error)
                 commit('SET_SUCCESS', false)
             }
         },
@@ -84,7 +85,7 @@ export default {
                     'Authorization': `${token}`
                 },
                 data: {
-                    ImageName: getters.GET_IMAGE_URL,
+                    ImageUrl: await getters.GET_IMAGE_URL,
                     title: data.formData.title,
                     description: data.formData.description,
                     content: data.formData.content,
