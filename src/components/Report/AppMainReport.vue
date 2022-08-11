@@ -65,7 +65,7 @@
           if (this.$store.getters.GET_SUCCESS) {
             this.$router.replace({ name: 'profile' })
           } else {
-            alert('Fracasso')
+            alert('Tentativa de publicar noticia fracassada :(')
           }
         } else {
           alert('Preencha todos os inputs')

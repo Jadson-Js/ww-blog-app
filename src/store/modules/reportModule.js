@@ -67,7 +67,11 @@ export default {
 
                 commit('SET_SUCCESS', true)
             } catch (error) {
-                console.log(error)
+                const errors = error.response.data.message.errors
+                for (let er of errors) {
+                    alert(er.msg)
+                }
+
                 commit('SET_SUCCESS', false)
             }
         },
@@ -98,7 +102,11 @@ export default {
 
                 commit('SET_SUCCESS', true)
             } catch (error) {
-                console.log(error)
+                const errors = error.response.data.message.errors
+                for (let er of errors) {
+                    alert(er.msg)
+                }
+
                 commit('SET_SUCCESS', false)
             }
         }
