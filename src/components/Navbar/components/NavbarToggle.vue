@@ -5,7 +5,7 @@
         </label>
 
         <ul :class="['menu__list', stateMenu]">
-            <li class="menu__item" @click="changeMenu()">
+            <li class="menu__item menu__item--home" @click="changeMenu()">
                 <router-link class="is-link nav-link" :to="{name: 'home'}">Home</router-link>
             </li>
 
@@ -66,7 +66,7 @@
 
     .navbar__menu {
         position: absolute;
-        left: 1em;
+        right: 1em;
         z-index: 1000;
 
         .menu-btn {
@@ -82,7 +82,7 @@
         .menu__list {
             transition: all 0.3s ease;
             position: fixed;
-            top: 3em;
+            top: 0;
             background: $color-dark-black;
             height: 100vh;
             min-width: 20%;
@@ -93,15 +93,16 @@
             .menu__item {
                 font-size: 1.1em;
                 border-bottom: 1px solid $color-dark-ultra-black;
+                width: 80vw;
+                text-align: center;
                 
                 &:hover {
                     background: $color-dark-light;
                 }
 
                 a {
-                    padding: .5em 2em .5em .5em;
+                    padding: .5em 0 .5em 0;
                     color: $color-white;
-                    width: 100%;
                     display: block;
 
                     &:hover {
@@ -115,9 +116,12 @@
                 }
             }
 
+            .menu__item--home {
+                margin-top: .2em;
+            }
+
             .menu__logout {
                 border-bottom: 1px solid $color-dark-ultra-black;
-                
 
                 &:hover {
                     background: $color-dark-light;
