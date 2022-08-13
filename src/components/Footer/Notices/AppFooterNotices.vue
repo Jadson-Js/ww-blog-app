@@ -1,5 +1,5 @@
 <template>
-    <h2 class="h4">Notícias</h2>
+    <h2 class="h4">Páginas principais</h2>
 
     <nav class="mt-2">
         <NoticesList />

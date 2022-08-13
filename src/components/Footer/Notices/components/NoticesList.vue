@@ -5,41 +5,17 @@
                 <li class="nav-item notices__item">
                     <router-link class="is-link notices__link" :to="{name: 'home'}">Home</router-link>
                 </li>
+            </div>
 
+            <div class="col-4 notices__container">
                 <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'error'}">Esportes</router-link>
-                </li>
-
-                <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'error'}">Economia</router-link>
+                    <router-link class="is-link notices__link" :to="{name: 'category', params: {category: 'Sobre'}}">Sobre</router-link>
                 </li>
             </div>
 
             <div class="col-4 notices__container">
                 <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'home'}">Culinária</router-link>
-                </li>
-
-                <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'error'}">Vagas</router-link>
-                </li>
-
-                <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'error'}">Tempo</router-link>
-                </li>
-            </div>
-
-            <div class="col-4 notices__container">
-                <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'home'}">Política</router-link>
-                </li>
-
-                <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'error'}">Concursos</router-link>
-                </li>
-
-                <li class="nav-item notices__item">
-                    <router-link class="is-link notices__link" :to="{name: 'error'}">Login</router-link>
+                    <router-link class="is-link notices__link" :to="{name: 'login'}">Login</router-link>
                 </li>
             </div>
         </div>

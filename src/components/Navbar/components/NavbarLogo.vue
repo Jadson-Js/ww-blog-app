@@ -13,11 +13,11 @@
 
     .navbar__logo {
         transition: all 0.3s ease;
-        color: $color-white;
+        color: $color-white !important;
         margin: 0;
 
         &:hover {
-            color: $color-green-light;
+            color: $color-green-light !important;
         }
     }
 
