@@ -11,3 +11,10 @@ if (process.env.NODE_ENV === 'production') {
     })
   );
 }
+
+module.exports = {
+  transpileDependencies: true,
+  configureWebpack(config) {
+      config.plugins = [...config.plugins, ...plugins];
+  },
+};
