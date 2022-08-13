@@ -78,11 +78,12 @@
         data['content'] = document.querySelector('.ql-editor').innerHTML
 
         for (let [name, value] of formData) {
-          if (value.name == "" || value == "" && value.image == undefined) {
+          if ((value == "" && name != 'newCategoryTitle') || value.name == "") {
             dataValid = false
+            break
           } else {
             data[name] = value
-            dataValid = true
+            dataValid = true 
           }
         }
 

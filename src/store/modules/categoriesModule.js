@@ -84,8 +84,6 @@ export default {
                 }
             };
 
-            console.log(options)
-
             const categoryCreated = await axios(options)
 
             commit('SET_NEW_CATEGORY_ID', categoryCreated.data.data.id)

@@ -32,7 +32,6 @@ export default {
         async uploadImg({ commit }, image) {
             await axios.post('https://api.imgbb.com/1/upload?expiration=31536000&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
                 .then((response) => {
-
                     response.data.data.medium != undefined ? commit('SET_IMAGE_URL', response.data.data.medium.url) : commit('SET_IMAGE_URL', response.data.data.image.url)
                 })
                 .catch((error) => {
