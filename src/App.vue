@@ -1,4 +1,6 @@
 <template>
+  <router-view name="head"></router-view>
+
   <AppNavbar />
 
   <router-view name="header"></router-view>

@@ -7,3 +7,6 @@
 4.0 Aprimorar a rapidez do site
 
 5.0 Aprimore o Navbar toggle
+
+6.0 Crie novas tabelas para os artigos e categorias, com a intenção de preencher as metas tags como 
+    <title>, <description>, <keywords> e deixar a page mais agradavel para SEO
