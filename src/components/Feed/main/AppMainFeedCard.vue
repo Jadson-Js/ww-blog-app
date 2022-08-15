@@ -51,7 +51,7 @@
 
     @media (min-width: 768px) {
         .l-post {
-            margin-bottom: 10em;
+            margin-bottom: 20em;
 
             &:last-of-type {
                 margin-bottom: 0;

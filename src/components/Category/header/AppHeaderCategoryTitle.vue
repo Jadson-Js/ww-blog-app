@@ -1,6 +1,6 @@
 <template>
-  <header class="text-center mt-2 p-2 l-header">
-    <h1 class="is-categoryHeader">{{ this.$route.params.category }}</h1>
+  <header class="text-center mt-3 mb-3 p-2 l-header">
+    <h1 class="is-categoryHeader m-0 p-0">{{ this.$route.params.category }}</h1>
   </header>
 </template>
 

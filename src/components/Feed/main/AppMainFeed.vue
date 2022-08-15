@@ -1,4 +1,5 @@
 <template>
+<div class="container-fluid">
     <component :is="tagMain" class="row">
         <div class="col-12 col-md-8 home__articles">
             <FeedNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
@@ -10,6 +11,7 @@
             <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost()" />
         </div>
     </component>
+</div>
 </template>
 
 <script>
@@ -54,7 +56,7 @@
     @import 'src/assets/scss/__utils.scss';
 
     .l-home {
-        margin: 1.5em auto;
+        margin: 1.5em 0;
     }
 
     .home__articles,

@@ -37,13 +37,7 @@
 <style lang="scss" scoped>
     .l-slide {
       margin: .5em auto;
-      width: 100vw;
+      width: 100%;
       overflow:hidden;
-    }
-
-    @media (min-width: 762px) {
-      .l-slide {
-        width: 98vw;
-      }
     }
 </style>
