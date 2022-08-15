@@ -45,6 +45,4 @@
       'Apple Color Emoji',
       'Segoe UI Emoji' !important;
   }
-
-  
 </style>

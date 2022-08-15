@@ -1,5 +1,5 @@
 <template>
-    <router-link class="navbar-brand navbar__logo" :to="{name: 'home'}">Blog.com</router-link>
+    <h1><router-link class="navbar-brand navbar__logo" :to="{name: 'home'}">Blog.com</router-link></h1>
 </template>
 
 <script>

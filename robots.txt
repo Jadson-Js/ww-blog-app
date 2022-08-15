@@ -1,0 +1,25 @@
+User-agent: *
+Disallow: /user/login/
+Noindex: /user/login/
+
+User-agent: *
+Disallow: /user/perfil/
+Noindex: /user/perfil/
+
+User-agent: *
+Disallow: /perfil/noticiar
+Noindex: /perfil/noticiar
+
+User-agent: *
+Disallow: /perfil/edit/categoria/4/sobre/
+Noindex: /perfil/edit/categoria/4/sobre/
+
+User-agent: *
+Disallow: /perfil/edit/categoria/94/economia/
+Noindex: /perfil/edit/categoria/94/economia/
+
+User-agent: *
+Disallow: /perfil/edit/categoria/104/guerras/
+Noindex: /perfil/edit/categoria/104/guerras/
+
+Sitemap: https://mefala.000webhostapp.com/sitemap.xml

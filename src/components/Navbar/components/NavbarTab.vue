@@ -18,7 +18,6 @@
                     <button @click="logout()" class="btn btn-sm btn-danger">Logout</button>  
                 </li>
             </div>
-            
 
             <li v-else class="nav-item tab__item">
                 <router-link class="is-link nav-link" :to="{name: 'login'}">Login</router-link>

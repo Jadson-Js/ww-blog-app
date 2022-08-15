@@ -4,7 +4,6 @@
       data-bs-target="#carouselExampleCaptions" :data-bs-slide-to="key" :class="isActive(key)" aria-current="true"
       :aria-label="'Slide ' + key"></button>
   </div>
-
   
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <article class="d-flex flex-row flex-md-column flex-lg-row align-items-start justify-content-start post__new">
         <router-link class="new__linkImg" :to="{name: 'notice', params: {category: category, noticeId: notice.id, noticeTitle: notice.title}}">
-            <img rel="prefetch" loading="lazy" :src="notice.ImageUrl"
+            <img loading="lazy" :src="notice.ImageUrl"
                 class="mb-md-2 mb-lg-0 is-linkImg new__img" alt="">
         </router-link>
 

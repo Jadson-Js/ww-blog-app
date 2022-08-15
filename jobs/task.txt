@@ -1,37 +1,9 @@
-Title: Bem vindo desocupados, apreciem o Blog mais esquizofrênico da Internet ❤
+1.0 Use o validator HTML
 
-Description: Instruções e Regras para um uso saudável da plataforma, quebrar as regras não vai ser nada saudável e com isso eu quero me referir diretamente a sua saúde meu amigo, não me faz ir a ai até a sua casa só pra te exaltar na porrada, com amor Admin ❤
+2.0 Lembre de redefinir os path da Route para algo mais semantico!
 
-Content: Instruções
-Para acessar a área de admin:
-No menu, click em Login.
-Preencha o formulario com as credenciais: Nome: Baba Yaga | Senha: babayaga-forever.
-Obs: Agora você estar na área de admin, com isso, você tem os privilegios de:
+3.0 Instale a <head>
 
-Artigos: publicar, editar e deletar.
-Categorias: Criar, editar e deletar.
+4.0 Aprimorar a rapidez do site
 
-Para publicar artigos:
-Na pagina do perfil, no canto superior esquerdo, click em Publicar artigo.
-Click no ícone da câmera e selecione alguma imagem, tanto de uma foto ou da galeria.
-Selecione uma categoria, caso queira criar uma nova categoria, click em Nova categoria!, será renderizado uma nova caixa para escrever, na caixa digite o nome da nova categoria (Deve ter entre 2 a 18 carácteres).
-Digite o titulo do artigo (Deve ter entre 35 a 90 carácteres).
-Digite a descrição do artigo (Deve ter entre 90 a 300 carácteres).
-Digite o conteúdo do artigo (Deve ter no mínimo 300 carácteres).
-
-
-Manhas do Blog:
-Não atualize fora da pagina inicial: https://mefala.000webhostapp.com/
-Quando criar um artigo selecione a categoria antes de por o título (quando se seleciona a categoria, o titulo é apagado).
-Em caso de imprevistos de mal funcionamento do site, vá para a pagina inicial e atualize.
-
-
-Regras
-1° Regra: NÃO HA REGRAS... HAHAHA
-
-Category: Sobre
-
-
-title: Mussum Ipsum, cacilds vidis litro abertis. Tá deprimidis, eu conheço uma cachacis que pod
-description: Mussum Ipsum, cacilds vidis litro abertis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Suco de cevadiss deixa as pessoas mais interessantis.Cevadis im ampola pa arma uma pindureta. Mussum Ipsu
-category: Mussum Ipsum, Ips
+5.0 Aprimore o Navbar toggle

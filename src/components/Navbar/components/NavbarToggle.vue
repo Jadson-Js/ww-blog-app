@@ -1,6 +1,6 @@
 <template>
     <div class="navbar__menu d-md-none">
-        <label for="click" class="menu-btn" @click="changeMenu()">
+        <label class="menu-btn" @click="changeMenu()">
             <font-awesome-icon :icon="iconMenu" />
         </label>
 
@@ -22,7 +22,6 @@
                     <button @click="logout()" class="btn btn-danger">Logout</button>  
                 </li>
             </div>
-            
 
             <li v-else class="menu__item" @click="changeMenu()">
                 <router-link class="is-link nav-link" :to="{name: 'login'}">Login</router-link>
