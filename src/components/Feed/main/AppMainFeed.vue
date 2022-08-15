@@ -1,18 +1,15 @@
 <template>
-    <main class="container-fluid l-home">
-        <div class="row">
-            <!-- Para cada 14 noticias do DB, essa div sera repetida -->
-            <div class="col-12 col-md-8 home__articles">
-                <FeedNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
+    <component :is="tagMain" class="row">
+        <div class="col-12 col-md-8 home__articles">
+            <FeedNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
 
-                <MoreNotices />
-            </div>
-
-            <div class="col-12 col-md-4 home__posts">
-                <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost()" />
-            </div>
+            <MoreNotices />
         </div>
-    </main>
+
+        <div class="col-12 col-md-4 home__posts">
+            <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost()" />
+        </div>
+    </component>
 </template>
 
 <script>
@@ -34,7 +31,10 @@
             return {}
         },
         computed: {
-            ...mapGetters(['GET_FEED', 'GET_GENERATION'])
+            ...mapGetters(['GET_FEED', 'GET_GENERATION']),
+            tagMain() {
+                return this.$route.name == 'home' || this.$route.name == 'category' ? 'main' : 'div'
+            }
         },
         methods: {
             async categoryIdPost() {

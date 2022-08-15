@@ -7,7 +7,6 @@
       <div class="col-12 col-md-8">
         <NoticeHero />
       </div>
-    
   </header>
 </template>
 

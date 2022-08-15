@@ -1,10 +1,10 @@
 <template>
   <div class="text-center mt-2 p-2 is-box">
-    <h1 class="is-categoryHeader">
+    <h2 class="is-categoryHeader">
       <router-link class="is-link notice__category" :to="{name: 'category', params: {category: this.$route.params.category}}">
         {{ this.$route.params.category }}
       </router-link>
-    </h1>
+    </h2>
   </div>
 </template>
 
