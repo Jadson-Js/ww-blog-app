@@ -56,10 +56,13 @@ export default {
                     ImageUrl: await getters.GET_IMAGE_URL,
                     title: formData.title,
                     description: formData.description,
+                    keywords: formData.keywords,
                     content: formData.content,
                     CategoryId: formData.CategoryId,
                 }
             };
+
+            console.log(options)
 
             try {
                 await axios(options)
@@ -91,6 +94,7 @@ export default {
                     ImageUrl: await getters.GET_IMAGE_URL,
                     title: data.formData.title,
                     description: data.formData.description,
+                    keywords: data.formData.keywords,
                     content: data.formData.content,
                     CategoryId: data.formData.CategoryId,
                 }

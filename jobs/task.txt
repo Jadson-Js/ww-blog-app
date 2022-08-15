@@ -10,3 +10,5 @@
 
 6.0 Crie novas tabelas para os artigos e categorias, com a intenção de preencher as metas tags como 
     <title>, <description>, <keywords> e deixar a page mais agradavel para SEO
+
+7.0 Redefinir tamanho de title e description para se adequar ao SEO, exemplo title de 50 a 60
