@@ -1,16 +1,13 @@
 <template>
     <section class="is-container__new l-post">
-        <router-link class="is-link post__title" :to="{name: 'category', params: {category: category}}">
-            <h1 class="h4">
-                {{ category }} <font-awesome-icon icon="angle-right" class="title__icon" />
-            </h1>
-        </router-link>
-
-        <FeedCardNotice 
-            v-for="(value, key) in notices" :key="key"
-            :category="category"
-            :notice="value"
-        /> 
+        <h2 class="h4">
+            <router-link class="is-link post__title" :to="{name: 'category', params: {category: category}}">
+                {{ category }}
+                <font-awesome-icon icon="angle-right" class="title__icon" />
+            </router-link>
+        </h2>
+        
+        <FeedCardNotice v-for="(value, key) in notices" :key="key" :category="category" :notice="value" />
     </section>
 </template>
 
@@ -25,17 +22,18 @@
             }
         },
         components: {
-           FeedCardNotice
+            FeedCardNotice
         },
         props: ['categoryId'],
         async mounted() {
             const awaitCategoryId = await this.categoryId
             await this.$store.dispatch('getNoticesByCategoryIdByApi', awaitCategoryId)
 
-            const categoryNotices = await this.$store.getters.GET_CATEGORY_NOTICES.find(el => el.id == awaitCategoryId)
+            const categoryNotices = await this.$store.getters.GET_CATEGORY_NOTICES.find(el => el.id ==
+                awaitCategoryId)
 
             this.category = categoryNotices.category
-            this.notices =  categoryNotices.notices
+            this.notices = categoryNotices.notices
         }
     }
 </script>
@@ -52,12 +50,12 @@
     }
 
     @media (min-width: 768px) {
-    .l-post {
-        margin-bottom: 10em;
-    
-        &:last-of-type {
-            margin-bottom: 0;
+        .l-post {
+            margin-bottom: 10em;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
-    }
     }
 </style>

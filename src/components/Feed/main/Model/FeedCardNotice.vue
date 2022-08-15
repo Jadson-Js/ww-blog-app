@@ -6,11 +6,11 @@
         </router-link>
 
         <div class="d-flex flex-column justify-content-start ms-2 new__content">
-            <h2 class="h6">
+            <h3 class="h6">
                 <router-link class="is-link is-new__title" :to="{name: 'notice', params: {category: category, noticeId: notice.id, noticeTitle: notice.title}}">
                     {{ notice.title }}
                 </router-link>
-            </h2>
+            </h3>
 
             <div class="d-inline">
                 <span class="is-new__time">{{ time_ago_in_words_with_parsing(notice.updatedAt) }}</span>

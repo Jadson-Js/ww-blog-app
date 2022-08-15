@@ -1,8 +1,8 @@
 <template>
   <div class="mt-4 is-box">
-    <h2 class="hero__title">
+    <h1 class="hero__title">
       {{ GET_ARTICLE.title }}
-    </h2>
+    </h1>
 
     <p class="mt-3 mb-4 hero__text">
       {{ GET_ARTICLE.description }}

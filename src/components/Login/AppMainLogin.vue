@@ -1,7 +1,7 @@
 <template>
     <main class="l-main">
         <form :class="['needs-validation', isValidated, 'l-login']" @submit.prevent novalidate>
-            <h1 class="mt-4 mb-4 text-center login__title">Login</h1>
+            <h2 class="mt-4 mb-4 text-center login__title">Login</h2>
 
             <div class="mb-4 login__question">
                 <label for="userName" class="form-label">Nome:</label>

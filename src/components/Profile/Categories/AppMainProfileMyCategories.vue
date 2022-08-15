@@ -1,9 +1,11 @@
 <template>
-    <h1 class="h2 mb-2 profile__title">Categorias</h1>
+    <section>
+        <h1 class="h2 mb-2 profile__title">Categorias</h1>
 
-    <div class="d-flex justify-content-start flex-wrap">
-        <CatalogCategory v-for="(value, key) in GET_CATEGORIES" :key="key" :category="value" />
-    </div>
+        <div class="d-flex justify-content-start flex-wrap">
+            <CatalogCategory v-for="(value, key) in GET_CATEGORIES" :key="key" :category="value" />
+        </div>
+    </section>
 </template>
 
 <script>
@@ -17,7 +19,7 @@
             CatalogCategory
         },
         computed: mapGetters(['GET_CATEGORIES']),
-        mounted () {
+        mounted() {
             this.$store.dispatch('getCategoriesByApi')
         }
     }

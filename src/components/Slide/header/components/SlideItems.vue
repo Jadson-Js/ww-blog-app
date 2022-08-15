@@ -6,10 +6,12 @@
       <img rel="prefetch" loading="lazy" :src="value.ImageUrl" class="d-block slide__img">
 
       <div class="carousel-caption  d-md-block">
+        <h2>
         <router-link class="h1 is-link slide__title"
           :to="{name: 'notice', params: {category: value.category.title, noticeId: value.id, noticeTitle: value.title}}">
           {{ value.title }}
         </router-link>
+        </h2>
       </div>
     </li>
   </ul>

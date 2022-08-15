@@ -1,9 +1,11 @@
 <template>
-    <h1 class="h2 mb-2 profile__title">Meus Artigos</h1>
+    <section>
+        <h1 class="h2 mb-2 profile__title">Meus Artigos</h1>
 
-    <div class="d-flex justify-content-start  flex-wrap profile__catalog">
-        <CatalogNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
-    </div>
+        <div class="d-flex justify-content-start  flex-wrap profile__catalog">
+            <CatalogNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
+        </div>
+    </section>
 </template>
 
 <script>

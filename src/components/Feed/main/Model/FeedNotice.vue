@@ -4,11 +4,11 @@
             <div class="d-inline-block mb-2"> <!-- Mostre a categorias dinamicamente & o horario q foi postado também -->
                 <span class="d-inline is-new__category">{{ notice.category.title }} - </span><span class="is-new__time">{{ time_ago_in_words_with_parsing(notice.updatedAt) }}</span>
             </div>
-            <h1 class="h3">
+            <h2 class="h3">
                 <router-link class="is-link is-new__title" :to="{name: 'notice', params: {category: notice.category.title, noticeId: notice.id, noticeTitle: notice.title}}">
                     {{ notice.title }}
                 </router-link>
-            </h1>
+            </h2>
 
             <p class="d-none d-lg-inline is-new__text">
                 {{ notice.description }} <!-- aplique filtro para q depois de um certo numero de caracteres, o conteudo seja escondido -->

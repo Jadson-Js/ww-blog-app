@@ -1,6 +1,5 @@
 <template>
   <header class="l-header">
-
       <div class="col-12">
         <NoticeCategory />
       </div>

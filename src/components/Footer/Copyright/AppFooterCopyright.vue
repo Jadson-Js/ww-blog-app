@@ -1,8 +1,8 @@
 <template>
-    <h1 class="h3">Blog.com</h1>
+    <h2><router-link class="h3 is-link copyright__logo" :to="{name: 'home'}">Blog.com</router-link></h2>
 
-    <p class="copyright__text">Copyright © 2022 Jadson Abreu</p>
-    <p class="copyright__text">Desenhado & desenvolvido por Jadson Abreu</p>
+    <span class="copyright__text">Copyright © 2022 Jadson Abreu</span>
+    <span class="copyright__text">Desenhado & desenvolvido por Jadson Abreu</span>
 </template>
 
 <script>
@@ -15,6 +15,10 @@
 
 <style lang="scss" scoped>
     @import 'src/assets/scss/__utils.scss';
+
+    .copyright__logo {
+        color: #fff;
+    }
 
     .copyright__text {
         margin-bottom: 0;

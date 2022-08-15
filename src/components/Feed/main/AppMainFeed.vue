@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid l-home">
+    <main class="container-fluid l-home">
         <div class="row">
             <!-- Para cada 14 noticias do DB, essa div sera repetida -->
             <div class="col-12 col-md-8 home__articles">
@@ -12,7 +12,7 @@
                 <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost()" />
             </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <script>
