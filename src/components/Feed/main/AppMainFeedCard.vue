@@ -6,7 +6,7 @@
                 <font-awesome-icon icon="angle-right" class="title__icon" />
             </router-link>
         </h2>
-        
+
         <FeedCardNotice v-for="(value, key) in notices" :key="key" :category="category" :notice="value" />
     </section>
 </template>

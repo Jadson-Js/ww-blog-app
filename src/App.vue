@@ -11,14 +11,11 @@
 </template>
 
 <script>
-  import watchPath from '/src/mixins/watchPath.vue'
-
   import AppNavbar from './components/Navbar/AppNavbar.vue'
   import AppFooter from './components/Footer/AppFooter.vue'
 
   export default {
     name: 'App',
-    mixins: [watchPath],
     components: {
       AppNavbar,
       AppFooter

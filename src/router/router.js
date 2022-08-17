@@ -23,6 +23,16 @@ const ReportEditCategory = () => import('../components/Report/ReportEditCategory
 // Errors
 const AppNotFound = () => import('../components/AppNotFound.vue');
 
+// Guards Navigations
+
+function verifyLogged (to, from, next) {
+    if(store.getters.GET_IS_LOGGED) {
+        next()
+    } else {
+        next('/')
+    }
+}
+
 
 // CREATE THE ROUTER
 const router = createRouter({
@@ -37,6 +47,16 @@ const router = createRouter({
                 header: AppHeaderSlide,
                 main: AppMainFeed
             },
+            beforeEnter: (() => {
+                store.commit('SET_RESET')
+
+                const config = {
+                    limit: 3,
+                    offset: 3
+                }
+
+                store.dispatch('getNoticesByApiToFeed', config)
+            }),
             meta: {
                 title: 'Hello world :)',
                 metaTags: [
@@ -57,7 +77,18 @@ const router = createRouter({
             components: {
                 header: AppHeaderCategoryTitle,
                 main: AppMainFeed
-            }
+            },
+            beforeEnter: ((to) => {
+                store.commit('SET_RESET')
+
+                const config = {
+                    category: to.params.category,
+                    limit: 3,
+                    offset: 0
+                }
+
+                store.dispatch('getNoticesByApiToCategoryFeed', config)
+            })
         },
         {
             path: '/:category/noticia/:noticeId/:noticeTitle',
@@ -65,30 +96,37 @@ const router = createRouter({
             components: {
                 header: AppHeaderNotice,
                 main: AppMainNotice
-            }
+            },
+            beforeEnter: ((to, from, next) => {
+                store.commit('SET_RESET')
+
+                store.dispatch('getNoticesByApiToArticle', to.params.noticeId)
+
+                const config = {
+                    category: to.params.category,
+                    limit: 3,
+                    offset: 0
+                }
+
+                store.dispatch('getNoticesByApiToCategoryFeed', config)
+
+                next()
+            })
         },
         {
-            path: '/user/login',
+            path: '/login',
             name: 'login',
             components: {
                 main: AppMainLogin
             }
         },
         {
-            path: '/user/perfil',
+            path: '/perfil',
             name: 'profile',
             components: {
                 main: AppMainProfile
             },
-            beforeEnter: (to, from, next) => {
-                if(store.getters.GET_IS_LOGGED) {
-                    next()
-                } else {
-                    next('/')
-                }
-        
-                
-            } 
+            beforeEnter: [verifyLogged]
         },
         {
             path: '/perfil/noticiar',
@@ -96,13 +134,7 @@ const router = createRouter({
             components: {
                 main: AppMainReport
             },
-            beforeEnter: (to, from, next) => {
-                if(store.getters.GET_IS_LOGGED) {
-                    next()
-                } else {
-                    next('/')
-                }  
-            } 
+            beforeEnter: [verifyLogged]
         },
         {
             path: '/perfil/edit/noticia/:noticeId/:noticeTitle',
@@ -110,13 +142,7 @@ const router = createRouter({
             components: {
                 main: AppMainReport
             },
-            beforeEnter: (to, from, next) => {
-                if(store.getters.GET_IS_LOGGED) {
-                    next()
-                } else {
-                    next('/')
-                }     
-            } 
+            beforeEnter: [verifyLogged]
         },
         {
             path: '/perfil/edit/categoria/:categoryId/:categoryTitle',
@@ -124,13 +150,7 @@ const router = createRouter({
             components: {
                 main: ReportEditCategory
             },
-            beforeEnter: (to, from, next) => {
-                if(store.getters.GET_IS_LOGGED) {
-                    next()
-                } else {
-                    next('/')
-                }        
-            } 
+            beforeEnter: [verifyLogged]
         },
         {
             path: '/:pathMatch(.*)*', // Indica todas possiveis rotas / caso nenhuma de sua rota for chamada essa será chamada
