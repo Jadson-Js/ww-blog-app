@@ -62,8 +62,6 @@ export default {
                 }
             };
 
-            console.log(options)
-
             try {
                 await axios(options)
 
@@ -73,7 +71,7 @@ export default {
                 for (let er of errors) {
                     alert(er.msg)
                 }
-
+                console.log(error)
                 commit('SET_SUCCESS', false)
             }
         },
@@ -109,7 +107,7 @@ export default {
                 for (let er of errors) {
                     alert(er.msg)
                 }
-
+                console.log(error)
                 commit('SET_SUCCESS', false)
             }
         }

@@ -17,16 +17,17 @@ const AppMainFeed = () => import('../components/Feed/main/AppMainFeed.vue');
 const AppMainNotice = () => import('../components/Notice/main/AppMainNotice.vue')
 const AppMainLogin = () => import('../components/Login/AppMainLogin.vue')
 const AppMainProfile = () => import('../components/Profile/AppMainProfile.vue')
-const AppMainReport = () => import('../components/Report/AppMainReport.vue')
-const ReportEditCategory = () => import('../components/Report/ReportEditCategory.vue')
+const AppMainReportNotice = () => import('../components/Report/Notice/AppMainReport.vue')
+const ReportNewCategory = () => import('../components/Report/Category/ReportNewCategory.vue')
+const ReportEditCategory = () => import('../components/Report/Category/ReportEditCategory.vue')
 
 // Errors
 const AppNotFound = () => import('../components/AppNotFound.vue');
 
 // Guards Navigations
 
-function verifyLogged (to, from, next) {
-    if(store.getters.GET_IS_LOGGED) {
+function verifyLogged(to, from, next) {
+    if (store.getters.GET_IS_LOGGED) {
         next()
     } else {
         next('/')
@@ -58,18 +59,17 @@ const router = createRouter({
                 store.dispatch('getNoticesByApiToFeed', config)
             }),
             meta: {
-                title: 'Hello world :)',
-                metaTags: [
-                  {
-                    name: 'description',
-                    content: 'The home page of our example app.'
-                  },
-                  {
-                    property: 'og:description',
-                    content: 'The home page of our example app.'
-                  }
+                title: 'mefala.com',
+                metaTags: [{
+                        name: 'description',
+                        content: 'The home page of our example app.'
+                    },
+                    {
+                        property: 'og:description',
+                        content: 'The home page of our example app.'
+                    }
                 ]
-              }
+            }
         },
         {
             path: '/:category',
@@ -111,7 +111,27 @@ const router = createRouter({
                 store.dispatch('getNoticesByApiToCategoryFeed', config)
 
                 next()
-            })
+            }),
+            meta: {
+                metaTags: [
+                    {
+                        name: 'description',
+                        content: 'contentDescription'
+                    },
+                    {
+                        property: 'og:description',
+                        content: 'contentDescription'
+                    },
+                    {
+                        name: 'keywords',
+                        content: 'contentKeywords'
+                    },
+                    {
+                        property: 'og:keywords',
+                        content: 'contentKeywords'
+                    }
+                ]
+            }
         },
         {
             path: '/login',
@@ -130,17 +150,25 @@ const router = createRouter({
         },
         {
             path: '/perfil/noticiar',
-            name: 'report',
+            name: 'newNotice',
             components: {
-                main: AppMainReport
+                main: AppMainReportNotice
             },
             beforeEnter: [verifyLogged]
         },
         {
-            path: '/perfil/edit/noticia/:noticeId/:noticeTitle',
-            name: 'editReport',
+            path: '/perfil/nova/categoria',
+            name: 'newCategory',
             components: {
-                main: AppMainReport
+                main: ReportNewCategory
+            },
+            beforeEnter: [verifyLogged]
+        },
+        {
+            path: '/perfil/editar/noticia/:noticeId/:noticeTitle',
+            name: 'editNotice',
+            components: {
+                main: AppMainReportNotice
             },
             beforeEnter: [verifyLogged]
         },
@@ -162,48 +190,68 @@ const router = createRouter({
     ]
 })
 
-// This callback runs before every route change, including on page load.
-router.beforeEach((to, from, next) => {
-    // This goes through the matched routes from last to first, finding the closest route with a title.
-    // e.g., if we have `/some/deep/nested/route` and `/some`, `/deep`, and `/nested` have titles,
-    // `/nested`'s will be chosen.
+// Este retorno de chamada é executado antes de cada mudança de rota, inclusive no carregamento da página.
+router.afterEach(async (to, from) => {
+    // Isso percorre as rotas correspondentes do último ao primeiro, encontrando a rota mais próxima com um título.
+    // por exemplo, se temos `/some/deep/nested/route` e `/some`, `/deep` e `/nested` têm títulos,
+    // `/nested`'s serão escolhidos.
     const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title);
-  
-    // Find the nearest route element with meta tags.
+
+    // Encontra o elemento de rota mais próximo com meta tags.
     const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
-  
+
     const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
-  
-    // If a route with a title was found, set the document (page) title to that value.
-    if(nearestWithTitle) {
-      document.title = nearestWithTitle.meta.title;
-    } else if(previousNearestWithMeta) {
-      document.title = previousNearestWithMeta.meta.title;
+
+    if (to.name == 'category') {
+        document.title = to.params.category
+    } else if (to.name == 'notice') {
+        document.title = to.params.noticeTitle
+    } else {
+        // Se uma rota com um título foi encontrada, defina o título do documento (página) para esse valor.
+        if (nearestWithTitle) {
+            document.title = nearestWithTitle.meta.title;
+        } else if (previousNearestWithMeta) {
+            document.title = previousNearestWithMeta.meta.title;
+        }
     }
-  
-    // Remove any stale meta tags from the document using the key attribute we set below.
+
+    // Remova quaisquer metatags obsoletas do documento usando o atributo key que definimos abaixo.
     Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el));
-  
-    // Skip rendering meta tags if there are none.
-    if(!nearestWithMeta) return next();
-  
-    // Turn the meta tag definitions into actual elements in the head.
+
+    // Ignora metatags de renderização se não houver nenhuma.
+    if (!nearestWithMeta) return;
+
+    // Transforma as definições de meta tag em elementos reais na cabeça.
     nearestWithMeta.meta.metaTags.map(tagDef => {
-      const tag = document.createElement('meta');
-  
-      Object.keys(tagDef).forEach(key => {
-        tag.setAttribute(key, tagDef[key]);
-      });
-  
-      // We use this to track which meta tags we create so we don't interfere with other ones.
-      tag.setAttribute('data-vue-router-controlled', '');
-  
-      return tag;
-    })
-    // Add the meta tags to the document head.
-    .forEach(tag => document.head.appendChild(tag));
-  
-    next();
-  });
+            const tag = document.createElement('meta');
+
+            if (to.name == 'notice') {
+                let descriptionNotice = store.getters.GET_ARTICLE.description
+                let keywordsNotice = store.getters.GET_ARTICLE.keywords
+                
+                Object.keys(tagDef).forEach(key => {
+                    if (tagDef[key] == 'contentDescriptionn') {
+                        tag.setAttribute(key, descriptionNotice)
+                    } else if (tagDef[key] == 'contentKeywords') {
+                        tag.setAttribute(key, keywordsNotice)
+                    } else { 
+                        tag.setAttribute(key, tagDef[key])
+                    }
+                });
+            } else {
+                Object.keys(tagDef).forEach(key => {
+                    tag.setAttribute(key, tagDef[key]);
+                });
+            }
+
+            // Usamos isso para rastrear quais meta tags criamos para não interferir em outras.
+            tag.setAttribute('data-vue-router-controlled', '');
+
+            return tag;
+        })
+
+        // Adiciona as meta tags ao cabeçalho do documento.
+        .forEach(tag => document.head.appendChild(tag));
+});
 
 export default router

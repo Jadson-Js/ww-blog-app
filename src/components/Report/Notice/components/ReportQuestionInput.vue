@@ -8,17 +8,10 @@
     placeholder="bostil, como tankar, memes, politica, brasil e etc." :value="GET_ARTICLE.keywords">
 
   <label for="selectCategory" class="h5 form-label report__label">Categoria do artigo:</label>
-  <select name="CategoryId" id="selectCategory" class="form-select" :value="GET_ARTICLE.CategoryId" v-model="category"
+  <select name="CategoryId" id="selectCategory" class="form-select" :value="GET_ARTICLE.CategoryId || undefined" v-model="category"
     required>
-    <option value="new">Nova categoria!</option>
     <option v-for="(value, key) in GET_CATEGORIES" :key="key" :value="value.id">{{ value.title }}</option>
   </select>
-
-  <div v-show="category == 'new'">
-    <label for="inputNewCategory" class="h5 form-label report__label">Nova categoria:</label>
-    <input type="text" name="newCategoryTitle" id="inputNewCategory" class="form-control report__input"
-      placeholder="Tutoriais" required>
-  </div>
 </template>
 
 <script>
@@ -39,7 +32,6 @@
         this.category = this.$store.getters.GET_ARTICLE.CategoryId
         this.onlyUpdate = true
       }
-
     }
   }
 </script>

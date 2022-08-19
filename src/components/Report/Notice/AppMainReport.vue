@@ -58,8 +58,6 @@
 
           await this.$store.dispatch('uploadImg', formData)
 
-          await this.createNewCategory(formFormated.data)
-
           await this.createOrUpdateNotice(formFormated.data)
 
           if (this.$store.getters.GET_SUCCESS) {
@@ -78,7 +76,7 @@
         data['content'] = document.querySelector('.ql-editor').innerHTML
 
         for (let [name, value] of formData) {
-          if ((value == "" && name != 'newCategoryTitle') || value.name == "") {
+          if (value == "" || value.name == "") {
             dataValid = false
             break
           } else {

@@ -1,8 +1,12 @@
 <template>
     <main class="container-fluid l-profile">
         <div class="d-flex justify-content-end">
-            <router-link class="btn btn-sm is-link profile__button" :to="{name: 'report'}">
+            <router-link class="btn btn-sm is-link profile__button" :to="{name: 'newNotice'}">
                 Criar artigo
+            </router-link>
+
+            <router-link class="btn btn-sm is-link profile__button" :to="{name: 'newCategory'}">
+                Criar categoria
             </router-link>
         </div>
 

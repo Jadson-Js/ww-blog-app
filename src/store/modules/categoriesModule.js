@@ -32,7 +32,7 @@ export default {
         SET_CATEGORY_NOTICES(state, data) {
             const columnNotices = {
                 id: data.id,
-                category: data.title,
+                category: data,
                 notices: data.articles
             }
 
@@ -70,7 +70,7 @@ export default {
             }
         },
 
-        async createCategoryByApi({ commit }, categoryTitle) {
+        async createCategory({ commit }, category) {
             let token = document.cookie.split('token=')[1]
 
             const options = {
@@ -80,16 +80,28 @@ export default {
                    'Authorization': `${token}` 
                 },
                 data: {
-                    title: categoryTitle,
+                    title: category.title,
+                    description: category.description,
+                    keywords: category.keywords
                 }
             };
 
-            const categoryCreated = await axios(options)
+            try {
+                const categoryCreated = await axios(options)
 
-            commit('SET_NEW_CATEGORY_ID', categoryCreated.data.data.id)
+                commit('SET_NEW_CATEGORY_ID', categoryCreated.data.data.id)
+                commit('SET_SUCCESS', true)
+            } catch (error) {
+                const errors = error.response.data.message.errors
+                for (let er of errors) {
+                    alert(er.msg)
+                }
+                console.log(error)
+                commit('SET_SUCCESS', false)
+            }
         },
 
-        async editCategory(none, data) {
+        async editCategory({ commit }, data) {
             let token = document.cookie.split('token=')[1]
 
             const options = {
@@ -106,8 +118,12 @@ export default {
             try {
                 await axios(options)
             } catch (error) {
-                alert(error) 
+                const errors = error.response.data.message.errors
+                for (let er of errors) {
+                    alert(er.msg)
+                }
                 console.log(error)
+                commit('SET_SUCCESS', false)
             }
         },
 

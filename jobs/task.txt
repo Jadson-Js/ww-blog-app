@@ -1,18 +1,13 @@
-1.0 Use o validator HTML
+1.0 Lembre de redefinir os path da Route para algo mais semantico!
 
-2.0 Lembre de redefinir os path da Route para algo mais semantico!
+2.0 Aprimorar a rapidez do site
 
-3.0 Instale a <head>
+3.0 Aprimore o Navbar toggle
 
-4.0 Aprimorar a rapidez do site
-
-5.0 Aprimore o Navbar toggle
-
-6.0 Crie novas tabelas para os artigos e categorias, com a intenção de preencher as metas tags como 
-    <title>, <description>, <keywords> e deixar a page mais agradavel para SEO
-
-7.0 Redefinir tamanho de title e description para se adequar ao SEO, exemplo title de 50 a 60
-
-8.0 Re programar sistema de request da api
+4.0 Re programar sistema de request da api
     8.1 Sitema atual = A um component qualquer, é declarado um mounted q faz a requisição
     8.2 Sistema planejado = Pela propia Rota do Router.js, como guarda de navegação, será requisitado dados da api
+
+5.0 A pagina de noticiar tem duas funções, tanto de criar noticia quanto de noticia, divida-as
+
+6.0 Não esqueça de organizar a estruta da pasta

@@ -2,7 +2,7 @@
     <section class="is-container__new l-post">
         <h2 class="h4">
             <router-link class="is-link post__title" :to="{name: 'category', params: {category: category}}">
-                {{ category }}
+                {{ category.title }}
                 <font-awesome-icon icon="angle-right" class="title__icon" />
             </router-link>
         </h2>
