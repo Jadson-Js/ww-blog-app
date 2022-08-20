@@ -78,17 +78,39 @@ const router = createRouter({
                 header: AppHeaderCategoryTitle,
                 main: AppMainFeed
             },
-            beforeEnter: ((to) => {
+            beforeEnter: (async (to) => {
                 store.commit('SET_RESET')
 
-                const config = {
+                const config1 = {
                     category: to.params.category,
                     limit: 3,
                     offset: 0
                 }
 
-                store.dispatch('getNoticesByApiToCategoryFeed', config)
-            })
+                store.dispatch('getNoticesByApiToCategoryFeed', config1)
+
+                await store.dispatch('getCategoryByTitle', to.params.category)
+            }),
+            meta: {
+                metaTags: [
+                    {
+                        name: 'description',
+                        content: 'contentDescription'
+                    },
+                    {
+                        property: 'og:description',
+                        content: 'contentDescription'
+                    },
+                    {
+                        name: 'keywords',
+                        content: 'contentKeywords'
+                    },
+                    {
+                        property: 'og:keywords',
+                        content: 'contentKeywords'
+                    }
+                ]
+            }
         },
         {
             path: '/:category/noticia/:noticeId/:noticeTitle',
@@ -101,14 +123,6 @@ const router = createRouter({
                 store.commit('SET_RESET')
 
                 store.dispatch('getNoticesByApiToArticle', to.params.noticeId)
-
-                const config = {
-                    category: to.params.category,
-                    limit: 3,
-                    offset: 0
-                }
-
-                store.dispatch('getNoticesByApiToCategoryFeed', config)
 
                 next()
             }),
@@ -226,19 +240,31 @@ router.afterEach(async (to, from) => {
             const tag = document.createElement('meta');
 
             if (to.name == 'notice') {
-                let descriptionNotice = store.getters.GET_ARTICLE.description
-                let keywordsNotice = store.getters.GET_ARTICLE.keywords
+                let { description, keywords } = store.getters.GET_ARTICLE
                 
                 Object.keys(tagDef).forEach(key => {
                     if (tagDef[key] == 'contentDescriptionn') {
-                        tag.setAttribute(key, descriptionNotice)
+                        tag.setAttribute(key, description)
                     } else if (tagDef[key] == 'contentKeywords') {
-                        tag.setAttribute(key, keywordsNotice)
+                        tag.setAttribute(key, keywords)
                     } else { 
                         tag.setAttribute(key, tagDef[key])
                     }
                 });
-            } else {
+
+            } else if (to.name == 'category') {
+                let { description, keywords } = store.getters.GET_CATEGORY
+                
+                Object.keys(tagDef).forEach(key => {
+                    if (tagDef[key] == 'contentDescriptionn') {
+                        tag.setAttribute(key, description)
+                    } else if (tagDef[key] == 'contentKeywords') {
+                        tag.setAttribute(key, keywords)
+                    } else { 
+                        tag.setAttribute(key, tagDef[key])
+                    }
+                });
+            } else { 
                 Object.keys(tagDef).forEach(key => {
                     tag.setAttribute(key, tagDef[key]);
                 });

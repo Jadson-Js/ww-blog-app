@@ -11,3 +11,14 @@
 5.0 A pagina de noticiar tem duas funções, tanto de criar noticia quanto de noticia, divida-as
 
 6.0 Não esqueça de organizar a estruta da pasta
+
+7.0 Ajuste as metas tags na Route.js em especial /category
+
+
+Faz 5 horas que estou assistindo meu irmãozinho na TV
+
+Eu sempre dividi um quarto com meu irmão mais novo. Mas desde que minha vó morreu há duas semanas atrás, o antigo quarto dela passou a ser meu. E depois.
+
+tecnologia, loggi tecnologia ltda, tecnologia da informação, o que é tecnologia, shippify tecnologia ltda, tecnologia e defesa, tecnología 5g, fundo tecnologia, bexs tecnologia da informação
+
+SCP-035-PT está localizado no Sítio PT10 e deve ser mantido em uma gaiola de 3 m x 3 m x 3 m, sendo alimentado diariamente com grãos como milho, trigo, aveia, etc. A gaiola deve ser limpa diariamente por funcionários Classe C, com roupas e luvas especiais simples, sem deixar quaisquer vestígios de fezes.

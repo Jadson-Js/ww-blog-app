@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export default {
     state: () => ({
+        category: {},
         categories: [],
         categoryNotices: [{
             category: 'Default',
@@ -11,6 +12,10 @@ export default {
     }),
 
     getters: {
+        GET_CATEGORY(state) {
+            return state.category
+        },
+
         GET_CATEGORIES(state) {
             return state.categories
         },
@@ -25,6 +30,10 @@ export default {
     },
 
     mutations: {
+        SET_CATEGORY(state, data) {
+            state.category = data
+        },
+
         SET_CATEGORIES(state, data) {
             state.categories = data
         },
@@ -60,11 +69,23 @@ export default {
 
         async getNoticesByCategoryIdByApi({
             commit
-        }, categoryId) {
+        }, config) {
             try {
-                const data = await axios.get('https://ww-blog-api.herokuapp.com/category/' + categoryId)
+                const data = await axios.get('https://ww-blog-api.herokuapp.com/category/' + config.id + '/articles/' + config.limit)
 
                 commit('SET_CATEGORY_NOTICES', data.data.data)
+            } catch (error) {
+                return error.response
+            }
+        },
+
+        async getCategoryByTitle({
+            commit
+        }, title) {
+            try {
+                const data = await axios.get('https://ww-blog-api.herokuapp.com/category/' + title)
+
+                commit('SET_CATEGORY', data.data.data)
             } catch (error) {
                 return error.response
             }
