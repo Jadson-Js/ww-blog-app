@@ -113,7 +113,7 @@
       }
     },
     async mounted() {
-      if (this.$route.name == 'editReport') {
+      if (this.$route.name == 'editNotice') {
         await this.$store.dispatch('getNoticesByApiToArticle', this.$route.params.noticeId)
         this.isEdit = true
         this.submit = 'Editar artigo'

@@ -58,9 +58,11 @@ export default {
                     description: formData.description,
                     keywords: formData.keywords,
                     content: formData.content,
-                    CategoryId: formData.CategoryId,
+                    CategoryId: parseInt(formData.CategoryId),
                 }
             };
+
+            console.log(options)
 
             try {
                 await axios(options)
@@ -97,6 +99,8 @@ export default {
                     CategoryId: data.formData.CategoryId,
                 }
             };
+
+            console.log(options)
 
             try {
                 await axios(options)
