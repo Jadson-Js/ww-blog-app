@@ -48,10 +48,10 @@ const router = createRouter({
                 header: AppHeaderSlide,
                 main: AppMainFeed
             },
-            beforeEnter: (() => {
+            beforeEnter: (async () => {
                 store.commit('SET_RESET')
 
-                store.dispatch('getCategoriesByApi')
+                await store.dispatch('getCategoriesByApi')
 
                 const config = {
                     limit: 3,
@@ -83,7 +83,7 @@ const router = createRouter({
             beforeEnter: (async (to) => {
                 store.commit('SET_RESET')
 
-                store.dispatch('getCategoriesByApi')
+                await store.dispatch('getCategoriesByApi')
 
                 const config = {
                     category: to.params.category,
@@ -123,12 +123,12 @@ const router = createRouter({
                 header: AppHeaderNotice,
                 main: AppMainNotice
             },
-            beforeEnter: ((to, from, next) => {
+            beforeEnter: (async (to, from, next) => {
                 store.commit('SET_RESET')
 
-                store.dispatch('getCategoriesByApi')
+                await store.dispatch('getCategoriesByApi')
 
-                store.dispatch('getNoticesByApiToArticle', to.params.noticeId)
+                await store.dispatch('getNoticesByApiToArticle', to.params.noticeId)
 
                 next()
             }),

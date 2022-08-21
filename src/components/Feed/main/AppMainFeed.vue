@@ -39,7 +39,7 @@
             async categoryIdPost() {
                 const generationFeed = this.$store.getters.GET_GENERATION
 
-                const categories = this.$store.getters.GET_CATEGORIES
+                const categories = await this.$store.getters.GET_CATEGORIES
 
                 return await generationFeed <= categories.length ? categories[generationFeed - 1].id : categories[0].id
             }
