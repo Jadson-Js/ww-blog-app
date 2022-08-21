@@ -51,6 +51,8 @@ const router = createRouter({
             beforeEnter: (() => {
                 store.commit('SET_RESET')
 
+                store.dispatch('getCategoriesByApi')
+
                 const config = {
                     limit: 3,
                     offset: 3
@@ -81,19 +83,7 @@ const router = createRouter({
             beforeEnter: (async (to) => {
                 store.commit('SET_RESET')
 
-                const config = {
-                    category: to.params.category,
-                    limit: 3,
-                    offset: 0
-                }
-
-                store.dispatch('getNoticesByApiToCategoryFeed', config)
-
-                await store.dispatch('getCategoryByTitle', to.params.category)
-            }),
-            beforeRouteUpdate: (async (to) => {
-                alert('x')
-                store.commit('SET_RESET')
+                store.dispatch('getCategoriesByApi')
 
                 const config = {
                     category: to.params.category,
@@ -135,6 +125,8 @@ const router = createRouter({
             },
             beforeEnter: ((to, from, next) => {
                 store.commit('SET_RESET')
+
+                store.dispatch('getCategoriesByApi')
 
                 store.dispatch('getNoticesByApiToArticle', to.params.noticeId)
 

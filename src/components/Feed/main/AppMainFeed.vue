@@ -1,5 +1,4 @@
 <template>
-{{ currentPath }}
     <div class="container-fluid">
         <component :is="tagMain" class="row">
             <div class="col-12 col-md-8 home__articles">
@@ -30,11 +29,6 @@
             AppMainFeedCard,
             MoreNotices
         },
-        data() {
-            return {
-                currentPath: this.$route.path
-            }
-        },
         computed: {
             ...mapGetters(['GET_FEED', 'GET_GENERATION']),
             tagMain() {
@@ -45,22 +39,35 @@
             async categoryIdPost() {
                 const generationFeed = this.$store.getters.GET_GENERATION
 
-                await this.$store.dispatch('getCategoriesByApi')
-
                 const categories = this.$store.getters.GET_CATEGORIES
 
-                return await generationFeed <= categories.length ? categories[generationFeed - 1].id : 1
+                return await generationFeed <= categories.length ? categories[generationFeed - 1].id : categories[0].id
             }
         },
-        watch: {
-            // whenever question changes, this function will run
-            currentPath(newPath) {
-                alert(newPath)
-            }
-        },
-        edited() {
-            this.currentPath = this.$route.path
+        mounted() {
+            this.$watch('$route', (newRoute, oldRoute) => {
+                if (newRoute.name == 'home' && oldRoute == '') {
+                this.$store.commit('SET_RESET')
+
+                const config = {
+                    limit: 3,
+                    offset: 3
+                }
+
+                this.$store.dispatch('getNoticesByApiToFeed', config)
+
+                } else if (newRoute.name == 'category' && oldRoute.name == 'category') {
+                    const config = {
+                        category: newRoute.params.category,
+                        limit: 3,
+                        offset: 0
+                    }
+
+                    this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
+                }
+            })
         }
+        
     }
 </script>
 

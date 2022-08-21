@@ -22,9 +22,6 @@
             NavbarLogo,
             NavbarToggle,
             NavbarTab
-        },
-        mounted () {
-            this.$store.dispatch('getCategoriesByApi')
         }
     }
 </script>

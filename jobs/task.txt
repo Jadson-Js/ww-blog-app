@@ -1,18 +1,14 @@
-2.0 Aprimorar a rapidez do site
+1.0 Aprimorar a rapidez do site
 
-3.0 Aprimore o Navbar toggle
+2.0 Aprimore o Navbar toggle
 
-4.0 Re programar sistema de request da api
-    8.1 Sitema atual = A um component qualquer, é declarado um mounted q faz a requisição
-    8.2 Sistema planejado = Pela propia Rota do Router.js, como guarda de navegação, será requisitado dados da api
+3.0 Não esqueça de organizar a estruta da pasta
 
-5.0 A pagina de noticiar tem duas funções, tanto de criar noticia quanto de noticia, divida-as
+4.0 Ajuste as metas tags na Route.js em especial 'category' & 'notice'
 
-6.0 Não esqueça de organizar a estruta da pasta
+5.0 Analise todo o Back-end para otimização máxima
 
-7.0 Ajuste as metas tags na Route.js em especial /category
-
-8.0 Analise todo o Back-end para otimização máxima
+6.0 Melhore o FeedCard para q quando todos as categories for renderizada ele reset
 
 -------------------------------------------------------------------------------------------------------
 
