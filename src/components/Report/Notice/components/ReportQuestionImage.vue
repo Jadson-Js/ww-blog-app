@@ -1,7 +1,7 @@
 <template>
     <div :class="classToReportImage">
         <div id="reportInput" :class="['report__input', classIcon]">
-            <input type="file" name="image" id="inputImage" accept="image/jpeg, image/png, image/jpg" @change="onFileChange">
+            <input type="file" name="image" id="inputImage" accept="image/jpeg, image/png, image/jpg, image/webp" @change="onFileChange">
         </div>
         <span id="inputImageLabel" class="mb-2 report-label">Adicionar foto</span>
     </div>

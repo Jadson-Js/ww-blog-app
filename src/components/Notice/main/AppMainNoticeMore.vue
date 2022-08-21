@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-8 mb-4">
         <div class="text-center is-box">
             <span class="h3 notice__more">Veja também</span>
         </div>

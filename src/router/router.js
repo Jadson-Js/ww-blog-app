@@ -130,6 +130,14 @@ const router = createRouter({
 
                 await store.dispatch('getNoticesByApiToArticle', to.params.noticeId)
 
+                const config = {
+                    category: to.params.category,
+                    limit: 3,
+                    offset: 0
+                }
+
+                store.dispatch('getNoticesByApiToCategoryFeed', config)
+
                 next()
             }),
             meta: {

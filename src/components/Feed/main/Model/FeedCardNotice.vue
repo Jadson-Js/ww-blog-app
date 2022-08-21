@@ -7,7 +7,7 @@
 
         <div class="d-flex flex-column justify-content-start ms-2 new__content">
             <h3 class="h6">
-                <router-link class="is-link is-new__title" :to="{name: 'notice', params: {category: category, noticeId: notice.id, noticeTitle: notice.title}}">
+                <router-link class="is-link is-new__title" :to="{name: 'notice', params: {category: category.title, noticeId: notice.id, noticeTitle: notice.title}}">
                     {{ notice.title }}
                 </router-link>
             </h3>
