@@ -92,15 +92,13 @@
             .menu__item {
                 font-size: 1.1em;
                 border-bottom: 1px solid $color-dark-ultra-black;
-                width: 80vw;
-                text-align: center;
                 
                 &:hover {
                     background: $color-dark-light;
                 }
 
                 a {
-                    padding: .5em 0 .5em 0;
+                    padding: .5em 1em;
                     color: $color-white;
                     display: block;
 
