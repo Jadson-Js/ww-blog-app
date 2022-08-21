@@ -36,7 +36,7 @@
 
 <style lang="scss" scoped>
     .l-slide {
-      margin: .5em auto;
+      margin: 0 auto 1em;
       width: 100%;
       overflow:hidden;
     }

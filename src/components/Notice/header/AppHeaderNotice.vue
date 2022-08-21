@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import NoticeCategory from './components/NoticeCategory.vue'
+  import NoticeCategory from '../../Category/header/AppHeaderCategoryTitle.vue'
   import NoticeHero from './components/NoticeHero.vue'
 
   export default {

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4 is-box">
+  <div class="is-box">
     <h1 class="hero__title">
       {{ GET_ARTICLE.title }}
     </h1>
