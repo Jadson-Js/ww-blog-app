@@ -1,17 +1,18 @@
 <template>
-<div class="container-fluid">
-    <component :is="tagMain" class="row">
-        <div class="col-12 col-md-8 home__articles">
-            <FeedNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
+{{ currentPath }}
+    <div class="container-fluid">
+        <component :is="tagMain" class="row">
+            <div class="col-12 col-md-8 home__articles">
+                <FeedNotice v-for="(value, key) in GET_FEED" :key="key" :notice="value" />
 
-            <MoreNotices />
-        </div>
+                <MoreNotices />
+            </div>
 
-        <div class="col-12 col-md-4 home__posts">
-            <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost()" />
-        </div>
-    </component>
-</div>
+            <div class="col-12 col-md-4 home__posts">
+                <AppMainFeedCard v-for="(value, key) in GET_GENERATION" :key="key" :categoryId="categoryIdPost()" />
+            </div>
+        </component>
+    </div>
 </template>
 
 <script>
@@ -30,7 +31,9 @@
             MoreNotices
         },
         data() {
-            return {}
+            return {
+                currentPath: this.$route.path
+            }
         },
         computed: {
             ...mapGetters(['GET_FEED', 'GET_GENERATION']),
@@ -48,6 +51,15 @@
 
                 return await generationFeed <= categories.length ? categories[generationFeed - 1].id : 1
             }
+        },
+        watch: {
+            // whenever question changes, this function will run
+            currentPath(newPath) {
+                alert(newPath)
+            }
+        },
+        edited() {
+            this.currentPath = this.$route.path
         }
     }
 </script>

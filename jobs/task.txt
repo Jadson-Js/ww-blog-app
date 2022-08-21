@@ -1,5 +1,3 @@
-1.0 Lembre de redefinir os path da Route para algo mais semantico!
-
 2.0 Aprimorar a rapidez do site
 
 3.0 Aprimore o Navbar toggle
@@ -14,6 +12,9 @@
 
 7.0 Ajuste as metas tags na Route.js em especial /category
 
+8.0 Analise todo o Back-end para otimização máxima
+
+-------------------------------------------------------------------------------------------------------
 
 Faz 5 horas que estou assistindo meu irmãozinho na TV
 
