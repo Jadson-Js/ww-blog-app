@@ -4,7 +4,6 @@
 
 <script>
     export default {
-
     }
 </script>
 
@@ -15,6 +14,7 @@
         transition: all 0.3s ease;
         color: $color-white !important;
         margin: 0;
+        padding: 0;
 
         &:hover {
             color: $color-green-light !important;

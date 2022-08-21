@@ -1,14 +1,12 @@
 1.0 Aprimorar a rapidez do site
 
-2.0 Aprimore o Navbar toggle
+2.0 Não esqueça de organizar a estruta da pasta
 
-3.0 Não esqueça de organizar a estruta da pasta
+3.0 Analise todo o Back-end para otimização máxima
 
-4.0 Ajuste as metas tags na Route.js em especial 'category' & 'notice'
+4.0 Melhore o FeedCard para q quando todos as categories for renderizada ele reset
 
-5.0 Analise todo o Back-end para otimização máxima
-
-6.0 Melhore o FeedCard para q quando todos as categories for renderizada ele reset
+5.0 adicione mais uma tabela nos artigos, uma tabela pra guardar a imagem da noticia e outra especifica para thumbnail.
 
 -------------------------------------------------------------------------------------------------------
 

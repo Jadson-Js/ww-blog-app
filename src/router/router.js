@@ -61,7 +61,7 @@ const router = createRouter({
                 store.dispatch('getNoticesByApiToFeed', config)
             }),
             meta: {
-                title: 'mefala.com',
+                title: 'explanou.com.br',
                 metaTags: [{
                         name: 'description',
                         content: 'The home page of our example app.'

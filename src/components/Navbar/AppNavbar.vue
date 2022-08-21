@@ -1,5 +1,5 @@
 <template>
-    <nav class="container-fluid navbar navbar-expand-lg  d-flex flex-nowrap align-items-center  justify-content-center justify-content-md-between l-navbar">
+    <nav class="container-fluid navbar navbar-expand-lg  d-flex flex-nowrap align-items-center justify-content-center justify-content-md-between l-navbar">
         <NavbarLogo />
         
         <NavbarToggle />

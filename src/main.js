@@ -10,6 +10,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBars, faXmark, faAngleRight, faEnvelope, faPhone, faLocationDot, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import VueAnalytics from 'vue-analytics'
 
 library.add(faBars, faXmark, faAngleRight, faEnvelope, faPhone, faLocationDot, faEllipsisVertical);
 
@@ -19,4 +20,8 @@ createApp(App)
 .use(store)
 .component("font-awesome-icon", FontAwesomeIcon)
 .component('QuillEditor', QuillEditor)
+.use(VueAnalytics, {
+  id: '328175151',
+  router
+})
 .mount('#app')

@@ -16,20 +16,20 @@ Noindex: /perfil/nova/categoria/
 
 
 User-agent: *
-Disallow: /perfil/editar/noticia/24/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv2/
-Noindex: /perfil/editar/noticia/24/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv2/
+Disallow: /perfil/editar/noticia/124/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv10/
+Noindex: /perfil/editar/noticia/124/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv10/
 
 User-agent: *
-Disallow: /perfil/editar/noticia/34/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv3/
-Noindex: /perfil/editar/noticia/34/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv3/
+Disallow: /perfil/editar/noticia/104/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv9/
+Noindex: /perfil/editar/noticia/104/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv9/
 
 User-agent: *
-Disallow: /perfil/editar/noticia/44/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv4/
-Noindex: /perfil/editar/noticia/44/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv4/
+Disallow: /perfil/editar/noticia/94/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv8/
+Noindex: /perfil/editar/noticia/94/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv8/
 
 User-agent: *
-Disallow: /perfil/editar/noticia/14/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv/
-Noindex: /perfil/editar/noticia/14/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv/
+Disallow: /perfil/editar/noticia/84/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv7/
+Noindex: /perfil/editar/noticia/84/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv7/
 
 User-agent: *
 Disallow: /perfil/editar/noticia/74/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv6/
@@ -40,5 +40,25 @@ Disallow: /perfil/editar/noticia/54/faz-5-horas-que-estou-assistindo-meu-irmaozi
 Noindex: /perfil/editar/noticia/54/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv5/
 
 User-agent: *
+Disallow: /perfil/editar/noticia/114/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv4/
+Noindex: /perfil/editar/noticia/114/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv4/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/34/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv3/
+Noindex: /perfil/editar/noticia/34/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv3/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/24/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv2/
+Noindex: /perfil/editar/noticia/24/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv2/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/14/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv/
+Noindex: /perfil/editar/noticia/14/faz-5-horas-que-estou-assistindo-meu-irmaozinho-na-tv/
+
+User-agent: *
 Disallow: /perfil/editar/categoria/14/scp/
 Noindex: /perfil/editar/categoria/14/scp/
+
+User-agent: *
+Disallow: /perfil/editar/categoria/64/creepypasta/
+Noindex: /perfil/editar/categoria/64/creepypasta/
