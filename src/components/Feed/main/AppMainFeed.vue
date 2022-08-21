@@ -57,6 +57,8 @@
                 this.$store.dispatch('getNoticesByApiToFeed', config)
 
                 } else if (newRoute.name == 'category' && oldRoute.name == 'category') {
+                    this.$store.commit('SET_RESET')
+
                     const config = {
                         category: newRoute.params.category,
                         limit: 3,
