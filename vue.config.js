@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
   plugins.unshift(
     new PrerenderPlugin({
       staticDir: join(__dirname, 'dist'),
-      routes: ['/', '/:category', '/:category/noticia/:noticeId/:noticeTitle', '/user/login', '/user/perfil', '/perfil/noticiar', '/perfil/edit/noticia/:noticeId/:noticeTitle', '/perfil/edit/categoria/:categoryId/:categoryTitle', '/:pathMatch(.*)*'], //the page route you want to prerender
+      routes: ['/', '/:category', '/:category/noticia/:noticeId/:noticeTitle', '/login', '/perfil', '/perfil/noticiar', '/perfil/nova/categoria', '/perfil/editar/noticia/:noticeId/:noticeTitle', '/perfil/editar/categoria/:categoryId/:categoryTitle', '/:pathMatch(.*)*'], //the page route you want to prerender
     }
   ));
 }
