@@ -6,7 +6,11 @@
 
 4.0 Melhore o FeedCard para q quando todos as categories for renderizada ele reset
 
-5.0 adicione mais uma tabela nos artigos, uma tabela pra guardar a imagem da noticia e outra especifica para thumbnail.
+5.0 Adição das tabelas em Article
+    5.1 thumbnail = img especifica para as thumbs
+    5.2 alt = Uma descrição da img
+
+6.0 Manipulando erros em axios
 
 -------------------------------------------------------------------------------------------------------
 

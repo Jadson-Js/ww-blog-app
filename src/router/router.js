@@ -64,11 +64,19 @@ const router = createRouter({
                 title: 'explanou.com.br',
                 metaTags: [{
                         name: 'description',
-                        content: 'The home page of our example app.'
+                        content: 'Eu sempre dividi um quarto com meu irmão mais novo. Mas desde que minha vó morreu há duas semanas atrás, o antigo quarto dela passou a ser meu. E depois.'
                     },
                     {
                         property: 'og:description',
-                        content: 'The home page of our example app.'
+                        content: 'Eu sempre dividi um quarto com meu irmão mais novo. Mas desde que minha vó morreu há duas semanas atrás, o antigo quarto dela passou a ser meu. E depois.'
+                    },
+                    {
+                        name: 'keywords',
+                        content: 'Eu sempre dividi um quarto com meu irmão mais novo. Mas desde que minha vó morreu há duas semanas atrás, o antigo quarto dela passou a ser meu. E depois.'
+                    },
+                    {
+                        property: 'og:keywords',
+                        content: 'Eu sempre dividi um quarto com meu irmão mais novo. Mas desde que minha vó morreu há duas semanas atrás, o antigo quarto dela passou a ser meu. E depois.'
                     }
                 ]
             }

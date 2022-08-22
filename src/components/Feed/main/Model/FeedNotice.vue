@@ -16,7 +16,7 @@
         </div>
 
         <router-link class="new__linkImg" :to="{name: 'notice', params: {category: notice.category.title, noticeId: notice.id, noticeTitle: notice.title}}">
-            <img loading="lazy" :src="notice.ImageUrl" class="mt-2 is-linkImg new__img" alt="">
+            <img loading="lazy" :src="notice.ThumbnailUrl" :alt="notice.alt" class="mt-2 is-linkImg new__img">
         </router-link>
     </article>
 </template>

@@ -3,7 +3,7 @@
     <li v-for="(value, key) in GET_SLIDE" :key="key" :class="['carousel-item', isActive(key) ]"
       data-bs-interval="4000">
 
-      <img rel="prefetch" loading="lazy" :src="value.ImageUrl" class="d-block slide__img">
+      <img rel="prefetch" loading="lazy" :src="value.ImageUrl" :alt="value.alt" class="d-block slide__img">
 
       <div class="carousel-caption  d-md-block">
         <h2>

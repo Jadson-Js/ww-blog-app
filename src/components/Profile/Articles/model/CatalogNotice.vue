@@ -1,7 +1,7 @@
 <template>
     <article class="d-flex justify-content-between catalog__notice">
         <div class="d-flex">
-            <img loading="lazy" :src="notice.ImageUrl"
+            <img loading="lazy" :src="notice.ImageUrl" :alt="notice.alt"
                 class="img-fluid me-2 is-linkImg  catalog__img">
 
             <div class="d-flex flex-column catalog__content">
