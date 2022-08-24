@@ -6,12 +6,6 @@
 
 4.0 Melhore o FeedCard para q quando todos as categories for renderizada ele reset
 
-5.0 Adição das tabelas em Article
-    5.1 thumbnail = img especifica para as thumbs
-    5.2 alt = Uma descrição da img
-
-6.0 Manipulando erros em axios
-
 -------------------------------------------------------------------------------------------------------
 
 Faz 5 horas que estou assistindo meu irmãozinho na TV

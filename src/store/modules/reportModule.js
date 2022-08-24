@@ -4,7 +4,8 @@ export default {
     state: () => ({
         report: {
             success: false,
-            ImageUrl: ''
+            ImageUrl: '',
+            ThumbnailUrl: ''
         },
     }),
 
@@ -16,6 +17,10 @@ export default {
         GET_IMAGE_URL(state) {
             return state.report.ImageUrl
         },
+
+        GET_THUMBNAIL_URL(state) {
+            return state.report.ThumbnailUrl
+        },
     },
 
     mutations: {
@@ -24,15 +29,28 @@ export default {
         },
 
         SET_IMAGE_URL(state, url) {
-            state.report.ImageUrl = url   
+            state.report.ImageUrl = url
+        },
+
+        SET_THUMBNAIL_URL(state, url) {
+            state.report.ThumbnailUrl = url
         }
     },
 
     actions: {
-        async uploadImg({ commit }, image) {
+        async uploadImg({
+            commit
+        }, image) {
             await axios.post('https://api.imgbb.com/1/upload?expiration=31536000&key=f7bb05661ec4bb0c7f7cf05123eab4a6', image)
                 .then((response) => {
-                    response.data.data.medium != undefined ? commit('SET_IMAGE_URL', response.data.data.medium.url) : commit('SET_IMAGE_URL', response.data.data.image.url)
+                    commit('SET_THUMBNAIL_URL', response.data.data.thumb.url)
+                    console.log(response.data.data)
+
+                    if (response.data.data.medium != undefined) {
+                        commit('SET_IMAGE_URL', response.data.data.medium.url)
+                    } else {
+                        commit('SET_IMAGE_URL', response.data.data.image.url)
+                    }
                 })
                 .catch((error) => {
                     console.log('error', error)
@@ -54,6 +72,8 @@ export default {
                 },
                 data: {
                     ImageUrl: await getters.GET_IMAGE_URL,
+                    ThumbnailUrl: await getters.GET_THUMBNAIL_URL,
+                    alt: formData.alt,
                     title: formData.title,
                     description: formData.description,
                     keywords: formData.keywords,
@@ -62,17 +82,15 @@ export default {
                 }
             };
 
-            console.log(options)
-
             try {
                 await axios(options)
 
                 commit('SET_SUCCESS', true)
             } catch (error) {
-                // const errors = error.response.data.message.errors
-                // for (let er of errors) {
-                //     alert(er.msg)
-                // }
+                const errors = error.response.data.message.errors
+                for (let er of errors) {
+                    alert(er.msg)
+                }
                 console.log(error)
                 commit('SET_SUCCESS', false)
             }
@@ -92,6 +110,8 @@ export default {
                 },
                 data: {
                     ImageUrl: await getters.GET_IMAGE_URL,
+                    ThumbnailUrl: await getters.GET_THUMBNAIL_URL,
+                    alt: data.formData.alt,
                     title: data.formData.title,
                     description: data.formData.description,
                     keywords: data.formData.keywords,
@@ -100,17 +120,15 @@ export default {
                 }
             };
 
-            console.log(options)
-
             try {
                 await axios(options)
 
                 commit('SET_SUCCESS', true)
             } catch (error) {
-                // const errors = error.response.data.message.errors
-                // for (let er of errors) {
-                //     alert(er.msg)
-                // }
+                const errors = error.response.data.message.errors
+                for (let er of errors) {
+                    alert(er.msg)
+                }
                 console.log(error)
                 commit('SET_SUCCESS', false)
             }
