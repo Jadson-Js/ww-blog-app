@@ -43,33 +43,7 @@
 
                 return await generationFeed <= categories.length ? categories[generationFeed - 1].id : categories[0].id
             }
-        },
-        mounted() {
-            this.$watch('$route', (newRoute, oldRoute) => {
-                if (newRoute.name == 'home' && oldRoute == '') {
-                this.$store.commit('SET_RESET')
-
-                const config = {
-                    limit: 3,
-                    offset: 3
-                }
-
-                this.$store.dispatch('getNoticesByApiToFeed', config)
-
-                } else if (newRoute.name == 'category' && oldRoute.name == 'category' || newRoute.name == 'notice' && oldRoute.name == 'notice') {
-                    this.$store.commit('SET_RESET')
-
-                    const config = {
-                        category: newRoute.params.category,
-                        limit: 3,
-                        offset: 0
-                    }
-
-                    this.$store.dispatch('getNoticesByApiToCategoryFeed', config)
-                }
-            })
         }
-        
     }
 </script>
 

@@ -13,13 +13,15 @@
 <script>
   import AppNavbar from './components/Navbar/AppNavbar.vue'
   import AppFooter from './components/Footer/AppFooter.vue'
+  import watchRoute from './mixins/watchRoute.vue'
 
   export default {
     name: 'App',
     components: {
       AppNavbar,
       AppFooter
-    }
+    },
+    mixins: [watchRoute]
   }
 </script>
 
