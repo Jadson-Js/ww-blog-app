@@ -56,6 +56,7 @@
     text-align: left;
     color: $color-white;
     font-weight: 600;
+    -webkit-text-stroke: 1px $color-dark-ultra-black;
   }
 
   @media (min-width: 762px) {

@@ -4,31 +4,23 @@
             <FooterNotices />
         </section>
 
-        <section class="footer__container l-contact">
-            <!-- Aplique semantica para area de contatos -->
-            <FooterContacts />
-        </section>
-
         <section class="d-flex flex-column align-items-center text-center footer__container">
             <FooterCopyright />
-            <FooterMidia />
+            <!-- <FooterMidia /> -->
         </section>
     </footer>
 </template>
 
-
 <script>
     import FooterNotices from './Notices/AppFooterNotices.vue'
-    import FooterContacts from './Contacts/AppFooterContacts.vue'
     import FooterCopyright from './Copyright/AppFooterCopyright.vue'
-    import FooterMidia from './Midia/AppFooterMidia.vue'
+    // import FooterMidia from './Midia/AppFooterMidia.vue'
 
     export default {
         components: {
             FooterNotices,
-            FooterContacts,
             FooterCopyright,
-            FooterMidia
+            // FooterMidia
         }
     }
 </script>

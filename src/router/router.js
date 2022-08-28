@@ -61,7 +61,7 @@ const router = createRouter({
                 store.dispatch('getNoticesByApiToFeed', config)
             }),
             meta: {
-                title: 'explanou.com.br',
+                title: '1001relatos.com.br',
                 metaTags: [{
                         name: 'description',
                         content: 'Eu sempre dividi um quarto com meu irmão mais novo. Mas desde que minha vó morreu há duas semanas atrás, o antigo quarto dela passou a ser meu. E depois.'
