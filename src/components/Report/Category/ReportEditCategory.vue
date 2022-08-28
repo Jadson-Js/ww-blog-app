@@ -72,7 +72,7 @@
         methods: {
             async editCategory(form) {
                 let formData = new FormData(form)
-                let data = {}
+                let data = {categoryId: this.$route.params.categoryId}
 
                 for (let [name, value] of formData) {
                     if (value != '') {
@@ -85,7 +85,7 @@
                 }
 
                 if (!this.emptyInput) {
-                    await this.$store.dispatch('createCategory', data)
+                    await this.$store.dispatch('editCategory', data)
 
                     if (this.$store.getters.GET_SUCCESS) {
                         this.validCredentials = true
@@ -94,7 +94,7 @@
                         })
                     } else {
                         this.validCredentials = false
-                        alert('Tentativa de criar categoria fracassada :(')
+                        alert('Tentativa de editar categoria fracassada :(')
                     }
                 } else {
                     this.validCredentials = false
@@ -102,8 +102,13 @@
             }
         },
         async mounted() {
-            await this.$store.dispatch('getNoticesByCategoryIdByApi', this.$route.params.categoryId)
-            this.category = this.$store.getters.GET_CATEGORY_NOTICES[1].category
+            const config = {
+                id: this.$route.params.categoryId,
+                limit: 0
+            }
+
+            await this.$store.dispatch('getNoticesByCategoryIdByApi', config)
+            this.category = await this.$store.getters.GET_CATEGORY_NOTICES[1].category
         }
     }
 </script>

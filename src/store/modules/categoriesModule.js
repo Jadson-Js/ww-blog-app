@@ -132,12 +132,16 @@ export default {
                     'Authorization': `${token}` 
                  },
                 data: {
-                    title: data.title
+                    title: data.title,
+                    description: data.description,
+                    keywords: data.keywords
                 }
             };
 
             try {
                 await axios(options)
+
+                commit('SET_SUCCESS', true)
             } catch (error) {
                 const errors = error.response.data.message.errors
                 for (let er of errors) {
