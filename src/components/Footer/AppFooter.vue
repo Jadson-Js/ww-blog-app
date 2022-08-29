@@ -31,7 +31,7 @@
     .l-footer {
         margin: 0;
         padding: 2em 1em;
-        background-color: $color-dark-light;
+        background-color: $color-dark-black;
         color: $color-white;
     }
 

@@ -30,7 +30,7 @@
     @import 'src/assets/scss/__utils.scss';
 
     .l-navbar {
-        background-color: $color-dark-light;
+        background-color: $color-dark-black;
         height: 3em;
     }
 </style>

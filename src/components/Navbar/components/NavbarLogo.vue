@@ -9,14 +9,15 @@
 
 <style lang="scss" scoped>
     @import 'src/assets/scss/__utils.scss';
-    @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
     .navbar__logo {
         transition: all 0.3s ease;
         color: $color-white !important;
         margin: 0;
         padding: 0;
-        font-family: 'Silkscreen', cursive;
+        font-family: 'Lobster', cursive;
+        font-size: .7em;
 
         &:hover {
             color: $color-red !important;
