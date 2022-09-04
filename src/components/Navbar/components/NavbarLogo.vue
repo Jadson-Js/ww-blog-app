@@ -1,5 +1,5 @@
 <template>
-    <h1><router-link class="navbar-brand navbar__logo" :to="{name: 'home'}">1001 Relatos</router-link></h1>
+    <h1><router-link class="navbar-brand navbar__logo" :to="{name: 'home'}">Clube dos Laranja <img src="../../../../src/assets/img/icon-orange.png" class="navbar__icon" alt="Logo do Clube dos Laranja"> </router-link></h1>
 </template>
 
 <script>
@@ -21,6 +21,11 @@
 
         &:hover {
             color: $color-red !important;
+        }
+
+        .navbar__icon {
+            width: 1em;
+            height: 1em;
         }
     }
 

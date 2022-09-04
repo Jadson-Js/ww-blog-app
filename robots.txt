@@ -1,0 +1,68 @@
+User-agent: *
+Disallow: /login/
+Noindex: /login/
+
+User-agent: *
+Disallow: /perfil/
+Noindex: /perfil/
+
+User-agent: *
+Disallow: /perfil/noticiar/
+Noindex: /perfil/noticiar/
+
+User-agent: *
+Disallow: /perfil/nova/categoria/
+Noindex: /perfil/nova/categoria/
+
+
+User-agent: *
+Disallow: /perfil/editar/noticia/84/o-incidente-do-bolo-um-dia-ruim-somente-um-dia-ruim-/
+Noindex: /perfil/editar/noticia/84/o-incidente-do-bolo-um-dia-ruim-somente-um-dia-ruim-/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/104/simplesmente-um-fenomeno-apresento-minha-maravilha-cosmica/
+Noindex: /perfil/editar/noticia/104/simplesmente-um-fenomeno-apresento-minha-maravilha-cosmica/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/94/existem-2-de-nos-ou-aceitar-que-as-sombras-sao-quem-somos/
+Noindex: /perfil/editar/noticia/94/existem-2-de-nos-ou-aceitar-que-as-sombras-sao-quem-somos/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/74/minha-sogra-quer-me-matar-expulsou-a-minha-mina-de-casa-/
+Noindex: /perfil/editar/noticia/74/minha-sogra-quer-me-matar-expulsou-a-minha-mina-de-casa-/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/64/meu-amigo-e-gente-boa-pena-q-nao-pode-ver-minha-muie/
+Noindex: /perfil/editar/noticia/64/meu-amigo-e-gente-boa-pena-q-nao-pode-ver-minha-muie/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/14/peguei-a-futura-esposa-do-meu-amigo-sou-talarico-/
+Noindex: /perfil/editar/noticia/14/peguei-a-futura-esposa-do-meu-amigo-sou-talarico-/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/24/como-eu-fui-demitido-no-meu-segundo-dia-de-estagio/
+Noindex: /perfil/editar/noticia/24/como-eu-fui-demitido-no-meu-segundo-dia-de-estagio/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/34/quando-eu-descobri-que-a-vida-nao-e-so-freefire-/
+Noindex: /perfil/editar/noticia/34/quando-eu-descobri-que-a-vida-nao-e-so-freefire-/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/44/meu-primeiro-beijo-foi-uma-desgraca-perdi-ate-a-amizade-/
+Noindex: /perfil/editar/noticia/44/meu-primeiro-beijo-foi-uma-desgraca-perdi-ate-a-amizade-/
+
+User-agent: *
+Disallow: /perfil/editar/noticia/54/o-dia-que-eu-quase-torei-o-miranha-safado-no-carro-de-som/
+Noindex: /perfil/editar/noticia/54/o-dia-que-eu-quase-torei-o-miranha-safado-no-carro-de-som/
+
+User-agent: *
+Disallow: /perfil/editar/categoria/4/o-mior/
+Noindex: /perfil/editar/categoria/4/o-mior/
+
+User-agent: *
+Disallow: /perfil/editar/categoria/34/namorada-b-o-/
+Noindex: /perfil/editar/categoria/34/namorada-b-o-/
+
+User-agent: *
+Disallow: /perfil/editar/categoria/44/frescuras/
+Noindex: /perfil/editar/categoria/44/frescuras/

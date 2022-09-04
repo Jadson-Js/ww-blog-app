@@ -61,7 +61,7 @@ const router = createRouter({
                 store.dispatch('getNoticesByApiToFeed', config)
             }),
             meta: {
-                title: '1001relatos.com.br',
+                title: 'Clube Dos Laranja',
                 metaTags: [{
                         name: 'description',
                         content: 'Eu sempre dividi um quarto com meu irmão mais novo. Mas desde que minha vó morreu há duas semanas atrás, o antigo quarto dela passou a ser meu. E depois.'
@@ -174,6 +174,9 @@ const router = createRouter({
             name: 'login',
             components: {
                 main: AppMainLogin
+            },
+            meta: {
+                title: 'Login',
             }
         },
         {
@@ -182,7 +185,10 @@ const router = createRouter({
             components: {
                 main: AppMainProfile
             },
-            beforeEnter: [verifyLogged]
+            beforeEnter: [verifyLogged],
+            meta: {
+                title: 'Perfil',
+            }
         },
         {
             path: '/perfil/noticiar',
@@ -190,7 +196,10 @@ const router = createRouter({
             components: {
                 main: AppMainReportNotice
             },
-            beforeEnter: [verifyLogged]
+            beforeEnter: [verifyLogged],
+            meta: {
+                title: 'Noticiar',
+            }
         },
         {
             path: '/perfil/nova/categoria',
@@ -198,7 +207,10 @@ const router = createRouter({
             components: {
                 main: ReportNewCategory
             },
-            beforeEnter: [verifyLogged]
+            beforeEnter: [verifyLogged],
+            meta: {
+                title: 'Nova categoria',
+            }
         },
         {
             path: '/perfil/editar/noticia/:noticeId/:noticeTitle',
@@ -206,7 +218,10 @@ const router = createRouter({
             components: {
                 main: AppMainReportNotice
             },
-            beforeEnter: [verifyLogged]
+            beforeEnter: [verifyLogged],
+            meta: {
+                title: 'Editar noticia',
+            }
         },
         {
             path: '/perfil/editar/categoria/:categoryId/:categoryTitle',
@@ -214,7 +229,10 @@ const router = createRouter({
             components: {
                 main: ReportEditCategory
             },
-            beforeEnter: [verifyLogged]
+            beforeEnter: [verifyLogged],
+            meta: {
+                title: 'Editar categoria',
+            }
         },
         {
             path: '/:pathMatch(.*)*', // Indica todas possiveis rotas / caso nenhuma de sua rota for chamada essa será chamada
